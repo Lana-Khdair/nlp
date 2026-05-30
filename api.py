@@ -90,11 +90,19 @@ def load_dataset():
 
 
 def _load_model_internal(model_type: str = "finetuned"):
-    """Internal helper — loads model into globals. Called at startup."""
+    """
+    Load model into globals. Skips reload if the requested model type is
+    already loaded — prevents the 30s+ overhead on every /evaluate call.
+    """
     global _model, _tokenizer, _model_type
+
+    # ── FIX 1: guard clause — skip if already loaded ──────────────────────────
+    if _model is not None and _model_type == model_type:
+        return
+
     from unsloth import FastLanguageModel
 
-    print(f"[startup] Loading base model: {BASE_MODEL}")
+    print(f"[model] Loading base model: {BASE_MODEL}")
     model, tokenizer = FastLanguageModel.from_pretrained(
         model_name=BASE_MODEL,
         max_seq_length=MAX_SEQ_LEN,
@@ -104,16 +112,16 @@ def _load_model_internal(model_type: str = "finetuned"):
 
     if model_type == "finetuned" and Path(MODEL_DIR).exists():
         from peft import PeftModel
-        print(f"[startup] Merging LoRA adapter from: {MODEL_DIR}")
+        print(f"[model] Merging LoRA adapter from: {MODEL_DIR}")
         model = PeftModel.from_pretrained(model, MODEL_DIR)
         model = model.merge_and_unload()
         _model_type = "finetuned"
-        print("[startup] Fine-tuned model ready ✓")
+        print("[model] Fine-tuned model ready ✓")
     else:
         if model_type == "finetuned":
-            print(f"[startup] WARNING: adapter not found at {MODEL_DIR}, using base model")
+            print(f"[model] WARNING: adapter not found at {MODEL_DIR}, using base model")
         _model_type = "base"
-        print("[startup] Base model ready ✓")
+        print("[model] Base model ready ✓")
 
     FastLanguageModel.for_inference(model)
     _model     = model
@@ -123,21 +131,19 @@ def _load_model_internal(model_type: str = "finetuned"):
 # ── Auto-load model on startup ────────────────────────────────────────────────
 @app.on_event("startup")
 async def startup_event():
-    """Load the fine-tuned model automatically when the API starts."""
+    # ── FIX 2: default to "finetuned" — that's the whole point of the pipeline
     try:
         _load_model_internal("finetuned")
     except Exception as e:
         print(f"[startup] ERROR loading model: {e}")
-        print("[startup] API will run without a model — /evaluate will return an error.")
-
 
 # ── Pydantic models ───────────────────────────────────────────────────────────
 class EvaluateRequest(BaseModel):
-    task:       str
+    task: str
     submission: str
-    reference:  Optional[str] = None
-    rubric:     Optional[dict] = None
-
+    reference: Optional[str] = None
+    rubric: Optional[dict] = None
+    model: Optional[str] = "finetuned"
 
 class EvaluateResponse(BaseModel):
     score:           Optional[int]
@@ -196,6 +202,9 @@ def model_status():
 @app.post("/model/load")
 def load_model(model_type: str = "finetuned"):
     """Manually reload the model (e.g. to switch base ↔ finetuned)."""
+    global _model_type
+    # Force reload even if the same type (e.g. after adapter update)
+    _model_type = None
     try:
         _load_model_internal(model_type)
         return {"status": "loaded", "type": _model_type}
@@ -205,9 +214,9 @@ def load_model(model_type: str = "finetuned"):
 
 @app.post("/evaluate", response_model=EvaluateResponse)
 def evaluate(req: EvaluateRequest):
-    """Evaluate a student submission using the loaded fine-tuned model."""
+    """Evaluate a student submission using the loaded model."""
 
-    # Reject immediately if model not loaded — no mock fallback
+    # Reject immediately if model not loaded
     if _model is None or _tokenizer is None:
         raise HTTPException(
             status_code=503,
@@ -216,6 +225,13 @@ def evaluate(req: EvaluateRequest):
                 "failed to load. Check server logs and try again in a moment."
             ),
         )
+
+    # ── FIX 1 (continued): guard in _load_model_internal means this is now
+    #    a cheap no-op when the right model is already loaded, and correctly
+    #    triggers a real reload only when the caller explicitly requests a
+    #    different model type via the `model` field.
+    requested_model = req.model or "finetuned"
+    _load_model_internal(requested_model)
 
     # Fetch reference + rubric from dataset if not provided
     reference = req.reference
@@ -250,7 +266,12 @@ def evaluate(req: EvaluateRequest):
         prompt = f"<s>[INST] {SYSTEM_PROMPT}\n\n{user_msg} [/INST]"
 
     t0     = time.time()
-    inputs = _tokenizer(prompt, return_tensors="pt").to(_model.device)
+    inputs = _tokenizer(
+        prompt,
+        return_tensors="pt",
+        truncation=True,
+        max_length=MAX_SEQ_LEN,
+    ).to(_model.device)
 
     with torch.no_grad():
         output_ids = _model.generate(

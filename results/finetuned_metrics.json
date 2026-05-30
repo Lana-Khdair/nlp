@@ -1,0 +1,10 @@
+{
+  "label": "finetuned",
+  "n_total": 163,
+  "n_parseable": 163,
+  "n_unparseable": 0,
+  "exact_accuracy": 0.7055,
+  "off_by_one_acc": 0.9387,
+  "mae": 0.3804,
+  "qwk": 0.8619
+}

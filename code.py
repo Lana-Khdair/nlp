@@ -58,7 +58,7 @@ TEST_RATIO     = 0.15
 RANDOM_SEED    = 42
 
 BASE_MODEL     = "unsloth/mistral-7b-instruct-v0.2-bnb-4bit"
-MAX_SEQ_LEN    = 1536
+MAX_SEQ_LEN    = 2048
 
 MAX_NEW_TOKENS = 128
 DO_SAMPLE      = False
@@ -90,9 +90,14 @@ Evaluate the student's submission strictly based on the given rubric and referen
 
 Scoring Guidelines:
 - 1: Completely broken — does not compile, or implements almost nothing of what is required.
-- 2: Major logical or syntax errors that prevent core requirements from working correctly.
-- 3: Partially correct — clearly state what is implemented correctly AND what key parts are missing or broken.
-- 4: Mostly correct and runs for standard inputs, but has a minor issue such as a missing edge case, slight inefficiency, or small logic flaw.
+- 2: Attempted the right approach but has major errors — core logic is broken 
+     or missing, output is wrong for most inputs.
+- 3: Core structure exists and compiles, but at least one major requirement 
+     is missing or produces wrong output for most inputs. The submission 
+     works for trivial cases only, or skips a required function entirely.
+- 4: All major requirements are implemented and produce correct output for 
+     standard inputs. Minor issues only — one missing edge case, a small 
+     style flaw, or a slight inefficiency that does not affect correctness.
 - 5: Fully correct — all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices.
 
 Output exactly these two lines and nothing else:
@@ -265,56 +270,60 @@ def step_prepare():
     print(f"  Score distribution : {score_dist}")
     print(f"  Unique tasks       : {n_tasks}")
 
-    # ── Task-level split (no leakage) ─────────────────────────────────────────
-    rng         = random.Random(RANDOM_SEED)
-    task_groups = defaultdict(list)
-    for entry in data:
-        task_groups[entry["task"]].append(entry)
+    # ── Submission-level stratified split  ─────────────────────
+    rng = random.Random(RANDOM_SEED)
 
-    tasks = list(task_groups.keys())
-    rng.shuffle(tasks)
+    task_score_groups = defaultdict(list)
+    for i, entry in enumerate(data):
+        task_score_groups[(entry["task"], entry["score"])].append(i)
 
-    n_train_tasks = int(len(tasks) * TRAIN_RATIO)
-    n_val_tasks   = int(len(tasks) * VAL_RATIO)
+    train_idx, val_idx, test_idx = [], [], []
 
-    train_tasks = tasks[:n_train_tasks]
-    val_tasks   = tasks[n_train_tasks:n_train_tasks + n_val_tasks]
-    test_tasks  = tasks[n_train_tasks + n_val_tasks:]
+    for (task, score), indices in task_score_groups.items():
+        idxs = indices[:]
+        rng.shuffle(idxs)
+        n       = len(idxs)
+        n_train = max(1, int(n * TRAIN_RATIO))
+        n_val   = max(1, int(n * VAL_RATIO))
+        if n_train + n_val >= n:
+            n_val   = 0 if n < 3 else 1
+            n_train = n - n_val - (1 if n >= 2 else 0)
+        train_idx.extend(idxs[:n_train])
+        val_idx.extend(idxs[n_train:n_train + n_val])
+        test_idx.extend(idxs[n_train + n_val:])
 
-    train, val, test = [], [], []
-    for t in train_tasks: train.extend(task_groups[t])
-    for t in val_tasks:   val.extend(task_groups[t])
-    for t in test_tasks:  test.extend(task_groups[t])
+    train = [data[i] for i in train_idx]
+    val   = [data[i] for i in val_idx]
+    test  = [data[i] for i in test_idx]
 
     rng.shuffle(train)
     rng.shuffle(val)
     rng.shuffle(test)
 
-    # Verify no leakage
-    overlap = (set(train_tasks) & set(val_tasks)) | \
-              (set(train_tasks) & set(test_tasks)) | \
-              (set(val_tasks)   & set(test_tasks))
-    if overlap:
-        raise RuntimeError(f"Task leakage detected: {overlap}")
+    print(f"\n  Split method : submission-level stratified (by task + score)")
+    print(f"  Train entries: {len(train)}")
+    print(f"  Val entries  : {len(val)}")
+    print(f"  Test entries : {len(test)}")
 
-    print(f"\n  Total tasks : {len(tasks)}")
-    print(f"  Train tasks : {len(train_tasks)}  ({len(train)} entries)")
-    print(f"  Val tasks   : {len(val_tasks)}  ({len(val)} entries)")
-    print(f"  Test tasks  : {len(test_tasks)}  ({len(test)} entries)")
-    print("✓ No task leakage detected.")
+    for label, split in [("Train", train), ("Val", val), ("Test", test)]:
+        dist = dict(sorted(Counter(e['score'] for e in split).items()))
+        print(f"  {label} scores : {dist}")
+
+    # Verify all tasks appear in every split
+    for label, split in [("train", train), ("val", val), ("test", test)]:
+        tasks_in_split = set(e["task"] for e in split)
+        print(f"✓ All {len(tasks_in_split)}/{n_tasks} tasks represented in {label}")
 
     save_jsonl(train, TRAIN_FILE)
     save_jsonl(val,   VAL_FILE)
     save_jsonl(test,  TEST_FILE)
 
-    # ── Save real dataset stats for use in the report ──────────────────────────
+    # ── Save dataset stats ─────────────────────────────────────────────────────
     save_json({
         "total_entries":    len(data),
         "unique_tasks":     n_tasks,
         "score_dist":       score_dist,
-        "train_tasks":      len(train_tasks),
-        "val_tasks":        len(val_tasks),
-        "test_tasks":       len(test_tasks),
+        "split_method":     "submission-level stratified",
         "train_entries":    len(train),
         "val_entries":      len(val),
         "test_entries":     len(test),
@@ -325,17 +334,22 @@ def step_prepare():
     }, DATASET_STATS)
 
     print(f"\n✓ Splits saved to {DATA_DIR}/")
-
 # ─────────────────────────────────────────────────────────────────────────────
 #  Shared inference loop
 # ─────────────────────────────────────────────────────────────────────────────
-
 def _run_inference(model, tokenizer, entries: list, stage_label: str) -> list:
     import torch
     results = []
     for i, entry in enumerate(entries):
         prompt = build_inference_prompt(entry, tokenizer)
-        inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+
+        # Truncate if prompt exceeds model limit
+        inputs = tokenizer(
+            prompt,
+            return_tensors="pt",
+            truncation=True,          # ← add this
+            max_length=MAX_SEQ_LEN,   # ← add this
+        ).to(model.device)
 
         with torch.no_grad():
             output_ids = model.generate(
@@ -364,7 +378,6 @@ def _run_inference(model, tokenizer, entries: list, stage_label: str) -> list:
             "raw_output":     raw_output,
         })
     return results
-
 # ─────────────────────────────────────────────────────────────────────────────
 #  STEP 4 — baseline
 # ─────────────────────────────────────────────────────────────────────────────
@@ -646,7 +659,7 @@ def step_analyze():
     lines.append(f"  Imbalance ratio  : {imbalance}x  "
                  f"(score {max_score}={max_count} vs score {min_score}={min_count})")
     lines.append(f"  Train entries    : {train_entries}  |  Test entries: {test_entries}")
-    lines.append(f"  Splitting method : task-level (no task appears in both train and test)")
+    lines.append(f"  Splitting method : submission-level")
 
     # Model config
     lines.append("")

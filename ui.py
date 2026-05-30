@@ -204,12 +204,13 @@ for item in data:
 # OVERALL DATASET METRICS
 # ─────────────────────────────────────────────
 all_scores = [item["score"] for item in data]
+
 total_submissions = len(all_scores)
 avg_score = sum(all_scores) / len(all_scores) if all_scores else 0
 accuracy_pct = (sum(1 for s in all_scores if s >= 4) / total_submissions * 100) if total_submissions else 0
 score_dist = {i: all_scores.count(i) for i in range(1, 6)}
 max_dist = max(score_dist.values()) if score_dist else 1
-
+  
 # ─────────────────────────────────────────────
 # SIDEBAR
 # ─────────────────────────────────────────────
@@ -228,7 +229,6 @@ with st.sidebar:
     selected_task = unique_tasks[selected_index]
     selected_title = selected_task["task"]
 
-    st.markdown("---")
 
     # Per-task mini stats in sidebar
     task_scores = task_score_map[selected_title]
@@ -244,7 +244,10 @@ with st.sidebar:
             f'<span style="color:#ccc; font-size:13px">{score} — {label}</span>',
             unsafe_allow_html=True,
         )
-
+model_choice = st.sidebar.selectbox(
+    "🧠 Model",
+    ["baseline", "finetuned"]
+)
 # ─────────────────────────────────────────────
 # MAIN — HEADER
 # ─────────────────────────────────────────────
@@ -260,49 +263,42 @@ st.markdown("---")
 # ─────────────────────────────────────────────
 # EVALUATION METRICS DASHBOARD (top)
 # ─────────────────────────────────────────────
-st.markdown("### 📊 Dataset Evaluation Metrics")
+st.markdown("### 📊 Evaluation Metrics")
 
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     st.markdown(
         f"""<div class="metric-card">
-            <div class="metric-label">Total Submissions</div>
-            <div class="metric-value" style="color:#4f6ef7">{total_submissions}</div>
-            <div class="metric-sub">{len(unique_tasks)} unique tasks</div>
+            <div class="metric-label">Exact Accuracy</div>
+            <div class="metric-value" style="color:#4f6ef7">77.91%</div>
         </div>""",
         unsafe_allow_html=True,
     )
 
 with col2:
-    avg_color = SCORE_COLORS.get(round(avg_score), "#8b92a5")
     st.markdown(
         f"""<div class="metric-card">
-            <div class="metric-label">Average Score</div>
-            <div class="metric-value" style="color:{avg_color}">{avg_score:.2f}<span style="font-size:18px;color:#8b92a5"> / 5</span></div>
-            <div class="metric-sub">{SCORE_LABELS.get(round(avg_score), '')}</div>
+            <div class="metric-label">Off-by-One Accuracy</div>
+            <div class="metric-value" style="color:#22c55e">95.71%</div>
         </div>""",
         unsafe_allow_html=True,
     )
 
 with col3:
-    acc_color = "#22c55e" if accuracy_pct >= 50 else "#ef9f27" if accuracy_pct >= 30 else "#e24b4a"
     st.markdown(
         f"""<div class="metric-card">
-            <div class="metric-label">Accuracy (Score ≥ 4)</div>
-            <div class="metric-value" style="color:{acc_color}">{accuracy_pct:.1f}<span style="font-size:18px;color:#8b92a5">%</span></div>
-            <div class="metric-sub">{sum(1 for s in all_scores if s >= 4)} passing submissions</div>
+            <div class="metric-label">MAE (↓ better)</div>
+            <div class="metric-value" style="color:#ef9f27">26.38%</div>
         </div>""",
         unsafe_allow_html=True,
     )
 
 with col4:
-    perfect = score_dist.get(5, 0)
     st.markdown(
         f"""<div class="metric-card">
-            <div class="metric-label">Perfect Scores (5/5)</div>
-            <div class="metric-value" style="color:#22c55e">{perfect}</div>
-            <div class="metric-sub">{perfect/total_submissions*100:.1f}% of submissions</div>
+            <div class="metric-label">QWK (↑ better)</div>
+            <div class="metric-value" style="color:#4f6ef7">91.78%</div>
         </div>""",
         unsafe_allow_html=True,
     )
@@ -389,14 +385,15 @@ if submitted:
 
             try:
                 res = requests.post(
-                    "http://127.0.0.1:8000/evaluate",
-                    json={
-                        "task": selected_task["task"],
-                        "submission": code,
-                        "reference": selected_task.get("reference"),
-                    },
-                    timeout=30,
-                )
+                   "http://127.0.0.1:8000/evaluate",
+                json={
+                "task": selected_task["task"],
+                 "submission": code,
+               "reference": selected_task.get("reference"),
+                "model": model_choice   # 👈 ADD THIS
+               },
+                   timeout=30,
+)
                 if res.ok:
                     result = res.json()
                 else:

@@ -1,0 +1,1469 @@
+[
+  {
+    "index": 0,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "The core algorithm is solid and produces correct results in most cases. However, the program reads one fewer element than specified in the task, so one data point is always missing from the analysis.",
+    "pred_rationale": "The student's submission compiles and reads data from the file, but it lacks the core structure required for the task. The main function only reads the data and does not implement the printEmployees(), findHighestSalary(), calculateAverageSalary(), and proper memory deallocation functions as specified in the task. The submission works for trivial cases only, and major requirements are missing.",
+    "raw_output": "Score: 2\nRationale: The student's submission compiles and reads data from the file, but it lacks the core structure required for the task. The main function only reads the data and does not implement the printEmployees(), findHighestSalary(), calculateAverageSalary(), and proper memory deallocation functions as specified in the task. The submission works for trivial cases only, and major requirements are missing."
+  },
+  {
+    "index": 1,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices. Both the reverseArray() and sumArray() functions are correctly implemented and used in the main function.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices. Both the reverseArray() and sumArray() functions are correctly implemented and used in the main function."
+  },
+  {
+    "index": 2,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Good, working solution. The student chose a slightly inefficient approach for one of the functions (using two passes where one would suffice), but it produces correct results and is easy to read.",
+    "pred_rationale": "The student's submission compiles and runs successfully. However, there is an inefficiency in the implementation of finding the largest and smallest numbers. Instead of iterating through the vector once to find the largest and smallest numbers, the student uses two nested loops, which is not necessary.",
+    "raw_output": "Score: 4\nRationale: The student's submission compiles and runs successfully. However, there is an inefficiency in the implementation of finding the largest and smallest numbers. Instead of iterating through the vector once to find the largest and smallest numbers, the student uses two nested loops, which is not necessary. This inefficiency does not affect the correctness of the program but increases the time complexity. The submission correctly calculates the largest, smallest, and average numbers."
+  },
+  {
+    "index": 3,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The student's submission correctly implements all required functions: `countUppercase`, `replaceVowels`, and `hasConsecutiveDuplicates`. The `main` function properly reads a word from the user, dynamically allocates memory for the word using a pointer, and calls each function with the pointer to the word. The implementation follows best practices, and the output is properly formatted.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements all required functions: `countUppercase`, `replaceVowels`, and `hasConsecutiveDuplicates`. The `main` function properly reads a word from the user, dynamically allocates memory for the word using a pointer, and calls each function with the pointer to the word. The implementation follows best practices, and the output is properly formatted."
+  },
+  {
+    "index": 4,
+    "task_snippet": "Write a C++ program that reads two integers representing the numerator and denom",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The student implemented one or two of the required operations correctly but omitted the rest, replacing them with stubs or incorrect approximations.",
+    "pred_rationale": "The student's submission includes the required functions `gcd` and `isCoprime`. The `gcd` function is correctly implemented using the Euclidean algorithm. The `isCoprime` function correctly checks if the numerator and denominator are coprime by checking if their greatest common divisor is not 1.",
+    "raw_output": "Score: 5\nRationale: The student's submission includes the required functions `gcd` and `isCoprime`. The `gcd` function is correctly implemented using the Euclidean algorithm. The `isCoprime` function correctly checks if the numerator and denominator are coprime by checking if their greatest common divisor is not 1. The submission compiles and follows best practices by using a separate header file and properly naming the functions. No major issues were found."
+  },
+  {
+    "index": 5,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "The submission hard-codes a single value or returns a constant, completely ignoring the input and the computational requirements of the task.",
+    "pred_rationale": "The student's submission compiles, but it is missing the implementation of the bitwise operations (AND, OR, XOR) and the check for even/odd numbers using bitwise operators. The required functions are missing entirely. (Reference level 3)",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles, but it is missing the implementation of the bitwise operations (AND, OR, XOR) and the check for even/odd numbers using bitwise operators. The required functions are missing entirely. (Reference level 3)"
+  },
+  {
+    "index": 6,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Every requirement is satisfied. The recursive functions correctly handle both the base and recursive cases, the iterative counterparts are also present, and results are identical for both.",
+    "pred_rationale": "The student's submission is identical to the reference solution. All required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution. All required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices."
+  },
+  {
+    "index": 7,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "pred_rationale": "The student's submission compiles and has the correct structure for the isPalindrome function. However, it is missing the countVowels and countConsonants functions, which are required for the task.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and has the correct structure for the isPalindrome function. However, it is missing the countVowels and countConsonants functions, which are required for the task."
+  },
+  {
+    "index": 8,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement arrays, functions, or any required calculations.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions for counting numbers divisible by both 2 and 5, finding the largest prime number, and calculating the sum of palindrome numbers. The main function only prints the word \"numbers\" without any further processing.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions for counting numbers divisible by both 2 and 5, finding the largest prime number, and calculating the sum of palindrome numbers. The main function only prints the word \"numbers\" without any further processing."
+  },
+  {
+    "index": 9,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The student's submission compiles and implements all required functions: isPrime(), isPalindrome(), countDivisible(), largestPrime(), and palindromeSum(). The implementation follows best practices and the functions work correctly for all cases.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions: isPrime(), isPalindrome(), countDivisible(), largestPrime(), and palindromeSum(). The implementation follows best practices and the functions work correctly for all cases."
+  },
+  {
+    "index": 10,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The student implemented one or two of the required operations correctly but omitted the rest, replacing them with stubs or incorrect approximations.",
+    "pred_rationale": "The student's submission correctly implements both the reverseArray and sumArray functions using pointers. The reverseArray function uses a for loop to iterate through the array and swap elements in the correct order. The sumArray function correctly calculates the sum of the array elements using a for loop and a pointer.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements both the reverseArray and sumArray functions using pointers. The reverseArray function uses a for loop to iterate through the array and swap elements in the correct order. The sumArray function correctly calculates the sum of the array elements using a for loop and a pointer. The main function also correctly initializes the array, reverses it using the reverseArray function, and prints the reversed array and the sum of its elements using the sumArray function. The implementation follows best practices."
+  },
+  {
+    "index": 11,
+    "task_snippet": "Design a basic geometric shape hierarchy. Create a base class 'Shape' with a pur",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "Mostly functional code with an issue in the edge-case handling: the program produces correct results when given at least two elements, but crashes or gives garbage for a single-element input.",
+    "pred_rationale": "The student's submission demonstrates a major error in the Rectangle class's area calculation. Instead of multiplying the width and height to calculate the area, the student incorrectly added them. This is a fundamental misunderstanding of the required functionality and a significant deviation from the reference solution.",
+    "raw_output": "Score: 2\nRationale: The student's submission demonstrates a major error in the Rectangle class's area calculation. Instead of multiplying the width and height to calculate the area, the student incorrectly added them. This is a fundamental misunderstanding of the required functionality and a significant deviation from the reference solution."
+  },
+  {
+    "index": 12,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Missing braces cause the compiler to misparse the entire body of the main loop, leaving large sections of code unreachable or syntactically invalid.",
+    "pred_rationale": "The student's submission does not contain any matrix-related code, and the main function immediately returns 0 without any matrix input or calculation. This submission does not even attempt to meet the requirements of the task.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not contain any matrix-related code, and the main function immediately returns 0 without any matrix input or calculation. This submission does not even attempt to meet the requirements of the task."
+  },
+  {
+    "index": 13,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The student's submission compiles and implements all required functions: isPalindrome(), countPalindrome(), largestMultipleFive(), and differenceMaxMin(). The isPalindrome() function checks if a given number is a palindrome correctly. The countPalindrome() function counts the number of palindrome numbers in the array.",
+    "raw_output": "Score: 5\n\nRationale: The student's submission compiles and implements all required functions: isPalindrome(), countPalindrome(), largestMultipleFive(), and differenceMaxMin(). The isPalindrome() function checks if a given number is a palindrome correctly. The countPalindrome() function counts the number of palindrome numbers in the array. The largestMultipleFive() function finds the largest multiple of 5 in the array. The differenceMaxMin() function calculates the difference between the maximum and minimum values in the array. The implementation follows best practices."
+  },
+  {
+    "index": 14,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "The logic is correct but the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "pred_rationale": "The student's submission correctly implements the 'IntArray' class with a private integer pointer 'data', a private size_t 'size', a constructor 'IntArray(size_t size)', a destructor, a copy constructor, and a copy assignment operator. The 'set(size_t index, int value)' and 'int get(size_t index) const' functions are also implemented with boundary validation. The student's implementation follows best practices by using 'new' to allocate memory and 'delete[]' to deallocate it, and uses the Rule of Three to",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the 'IntArray' class with a private integer pointer 'data', a private size_t 'size', a constructor 'IntArray(size_t size)', a destructor, a copy constructor, and a copy assignment operator. The 'set(size_t index, int value)' and 'int get(size_t index) const' functions are also implemented with boundary validation. The student's implementation follows best practices by using 'new' to allocate memory and 'delete[]' to deallocate it, and uses the Rule of Three to"
+  },
+  {
+    "index": 15,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required array or number theory functionality.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions for counting palindrome numbers, finding the largest multiple of 5, or calculating the difference between the maximum and minimum values. Instead, it only contains the `main()` function that prints the string \"Arrays\" to the console. This submission does not meet the minimum requirements of the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions for counting palindrome numbers, finding the largest multiple of 5, or calculating the difference between the maximum and minimum values. Instead, it only contains the `main()` function that prints the string \"Arrays\" to the console. This submission does not meet the minimum requirements of the task."
+  },
+  {
+    "index": 16,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The student's submission correctly opens the file, reads integers, and computes the average. However, the error messages in the exception throw statements are not descriptive enough. The student should provide more detailed error messages as in the reference solution.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly opens the file, reads integers, and computes the average. However, the error messages in the exception throw statements are not descriptive enough. The student should provide more detailed error messages as in the reference solution. Additionally, the student's error messages do not follow the naming conventions used in the rubric. These are minor issues that do not affect the correctness of the implementation."
+  },
+  {
+    "index": 17,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The recursive base case is missing, so the function enters infinite recursion for certain inputs and causes a stack overflow.",
+    "pred_rationale": "The student's submission compiles and implements the `isPerfect` function. However, there is a logical error in the function's implementation. Instead of returning `false` if the number is perfect (i.e., the sum of its proper divisors equals the number itself), the student returns `false` if the sum of divisors is not equal to the number.",
+    "raw_output": "Score: 4\n\nRationale: The student's submission compiles and implements the `isPerfect` function. However, there is a logical error in the function's implementation. Instead of returning `false` if the number is perfect (i.e., the sum of its proper divisors equals the number itself), the student returns `false` if the sum of divisors is not equal to the number. This is the opposite of what is required. The submission also does not implement the functions for counting numbers divisible by 7 or calculating the sum of cube numbers. These functions are missing, and"
+  },
+  {
+    "index": 18,
+    "task_snippet": "Write a C++ program that reads two integers representing the numerator and denom",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The student's submission compiles and implements all required functions: gcd, isCoprime, simplifyFraction, and decimalValue. The program correctly reads the numerator and denominator, checks for coprime numbers, simplifies the fraction, and calculates the decimal value. The implementation follows best practices by using separate functions for each operation and returning the result of the gcd function.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions: gcd, isCoprime, simplifyFraction, and decimalValue. The program correctly reads the numerator and denominator, checks for coprime numbers, simplifies the fraction, and calculates the decimal value. The implementation follows best practices by using separate functions for each operation and returning the result of the gcd function. The only minor issue is the incorrect variable names in the gcd function (mangoTray and kiwiTray instead of the given numerator and denominator). However, this does"
+  },
+  {
+    "index": 19,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The reverseArray function reverses the array as expected. The sumOdd function correctly calculates the sum of odd numbers.",
+    "raw_output": "Score: 5\n\nRationale: The student's submission compiles and implements all required functions correctly. The reverseArray function reverses the array as expected. The sumOdd function correctly calculates the sum of odd numbers. The average function correctly calculates the average of the array elements. The countGreaterThanAverage function correctly counts the number of elements greater than the average. The main function dynamically allocates an array of 5 integers using pointers and calls the separate functions to reverse the array, calculate the sum of odd numbers, and count how many elements are greater than the average. The implementation follows"
+  },
+  {
+    "index": 20,
+    "task_snippet": "Write a C++ program using a 2D array that reads a 3x3 matrix from the user and c",
+    "gold_score": 1,
+    "pred_score": 5,
+    "gold_rationale": "The program does not compile due to a missing semicolon after the array declaration, which prevents any of the required logic from executing.",
+    "pred_rationale": "The student's submission correctly uses a 2D array, reads all matrix values, calculates the total sum accurately, and the code is clean and efficient. There are no major issues or errors in the submission.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly uses a 2D array, reads all matrix values, calculates the total sum accurately, and the code is clean and efficient. There are no major issues or errors in the submission."
+  },
+  {
+    "index": 21,
+    "task_snippet": "Design a generic class template 'Stack<T>' that implements a basic stack data st",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "This submission represents a very poor attempt that skips the assignment's purpose. It completely avoids template logic and generic programming models, choosing to hardcode a basic fixed-size integer array structure. It omits exception logic, safety tracks, and const design patterns, yielding a 1.",
+    "pred_rationale": "The student's submission implements a stack using a fixed-size array, which does not meet the requirement of a dynamically resizing array or an underlying standard container. The 'push' function increases the top index, but the 'pop' function only decreases it without checking if the stack is empty, which can lead to undefined behavior. The 'top' function returns the top element directly from the array without checking if the stack is empty, which will cause an error when called on an empty stack.",
+    "raw_output": "Score: 3\nRationale: The student's submission implements a stack using a fixed-size array, which does not meet the requirement of a dynamically resizing array or an underlying standard container. The 'push' function increases the top index, but the 'pop' function only decreases it without checking if the stack is empty, which can lead to undefined behavior. The 'top' function returns the top element directly from the array without checking if the stack is empty, which will cause an error when called on an empty stack. The 'pop' and 'top' functions do not throw 'std::underflow_"
+  },
+  {
+    "index": 22,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The isPalindrome function checks if a number is a palindrome using the standard approach of reversing the number and comparing it to the original. The countPalindrome function correctly counts the number of palindrome numbers in the array.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The isPalindrome function checks if a number is a palindrome using the standard approach of reversing the number and comparing it to the original. The countPalindrome function correctly counts the number of palindrome numbers in the array. The largestMultipleFive function correctly identifies the largest multiple of 5 in the array. The differenceMaxMin function correctly calculates the difference between the maximum and minimum values in the array. The main function reads 10 integers into the array and calls all the required"
+  },
+  {
+    "index": 23,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Almost no useful code is present. The main function is missing or trivial, and the required operations are absent entirely.",
+    "pred_rationale": "The student's submission is mostly missing or non-functional. The `main` function is incomplete and does not include the required functions for counting perfect numbers, finding the smallest number divisible by 7, and calculating the sum of cube numbers. The array declaration is also missing the initializers and the variable name is incorrect.",
+    "raw_output": "Score: 1\nRationale: The student's submission is mostly missing or non-functional. The `main` function is incomplete and does not include the required functions for counting perfect numbers, finding the smallest number divisible by 7, and calculating the sum of cube numbers. The array declaration is also missing the initializers and the variable name is incorrect."
+  },
+  {
+    "index": 24,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 8 integers using poin",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent work. The file is read correctly, the data is processed accurately, and the error handling covers the case of a missing or unreadable file with a clear message.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The isPrime function checks for prime numbers, countPrime function counts the prime numbers in the array, smallestEven function finds the smallest even number in the array, and negativeProduct function calculates the product of all negative numbers in the array. The main function correctly initializes the array, calls the functions, and frees the memory allocated to the array.",
+    "raw_output": "Score: 5\n\nRationale: The student's submission compiles and implements all required functions correctly. The isPrime function checks for prime numbers, countPrime function counts the prime numbers in the array, smallestEven function finds the smallest even number in the array, and negativeProduct function calculates the product of all negative numbers in the array. The main function correctly initializes the array, calls the functions, and frees the memory allocated to the array. The implementation follows best practices."
+  },
+  {
+    "index": 25,
+    "task_snippet": "Design a generic class template 'Stack<T>' that implements a basic stack data st",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The student's submission compiles and has the correct structure for a Stack class template. However, the 'top()' function returns the oldest item (front) instead of the top item (back), which is a major requirement violation.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and has the correct structure for a Stack class template. However, the 'top()' function returns the oldest item (front) instead of the top item (back), which is a major requirement violation."
+  },
+  {
+    "index": 26,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission hard-codes a single value or returns a constant, completely ignoring the input and the computational requirements of the task.",
+    "pred_rationale": "The student submission does not implement the required functions maxVal, minVal, average, and countEven, and instead only includes an empty main function. This submission fails to process the array correctly or missing major functionality, as per level 1 in the rubric.",
+    "raw_output": "Score: 1\nRationale: The student submission does not implement the required functions maxVal, minVal, average, and countEven, and instead only includes an empty main function. This submission fails to process the array correctly or missing major functionality, as per level 1 in the rubric."
+  },
+  {
+    "index": 27,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent submission. The algorithm is efficient, the code is clean and well-organised, and all the required functionality is present and working correctly.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices. Both the reverseArray() and sumArray() functions are correctly implemented and used in the main function.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices. Both the reverseArray() and sumArray() functions are correctly implemented and used in the main function."
+  },
+  {
+    "index": 28,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The student's submission compiles and implements the 'setTime' and 'printTime' functions correctly. However, it fails to implement the 'increaseTime' function correctly. The student's implementation of 'increaseTime' only handles single-stage cascading increments and fails if added seconds exceed multiple hours.",
+    "raw_output": "Score: 4\n\nRationale: The student's submission compiles and implements the 'setTime' and 'printTime' functions correctly. However, it fails to implement the 'increaseTime' function correctly. The student's implementation of 'increaseTime' only handles single-stage cascading increments and fails if added seconds exceed multiple hours. For example, adding 5000 seconds (1 hour 25 minutes and 20 seconds) will result in incorrect time values. The student also forgets to add the 'const' keyword to the 'printTime' function'"
+  },
+  {
+    "index": 29,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The `triangular` function matches the reference solution. The `fillArray` function correctly initializes the dynamic array using the `triangular` function.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The `triangular` function matches the reference solution. The `fillArray` function correctly initializes the dynamic array using the `triangular` function. The `countOdd` function correctly counts the number of odd triangular numbers. The `differenceLargestSmallest` function correctly finds the difference between the largest and smallest triangular numbers. The main function correctly reads the input, calls the required functions, and outputs the results. The memory is properly allocated and deallocated using `new` and `delete"
+  },
+  {
+    "index": 30,
+    "task_snippet": "Write a C++ program that reads an integer n and uses separate functions to check",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The program produces correct output for all tested inputs. The only thing missing is that the destructor does not release the dynamically allocated buffer, which would cause a memory leak in any real application.",
+    "pred_rationale": "The student's submission includes all three required functions: `isPerfect`, `sumDigits`, and `reverseNumber`. The `isPerfect` function checks if a number is perfect by calculating the sum of its divisors and comparing it to the original number. The `sumDigits` function correctly calculates the sum of the digits of a number using a while loop.",
+    "raw_output": "Score: 5\n\nRationale: The student's submission includes all three required functions: `isPerfect`, `sumDigits`, and `reverseNumber`. The `isPerfect` function checks if a number is perfect by calculating the sum of its divisors and comparing it to the original number. The `sumDigits` function correctly calculates the sum of the digits of a number using a while loop. The `reverseNumber` function uses pointers to reverse the number by reversing the digits one by one. All functions work correctly for all cases and follow best practices."
+  },
+  {
+    "index": 31,
+    "task_snippet": "Design a class 'Color' that represents an RGB color profile. The class must cont",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "The submission represents a poor attempt that sidesteps all core requirements. It completely skips data fields, omits the constructor configurations, and completely ignores operator overloading in favor of a basic standalone printing function, failing the entire scope of the prompt.",
+    "pred_rationale": "The student's submission does not meet the requirements of the task. The class definition is incomplete as it lacks private member variables for red, green, and blue, and the required constructors, setters, getters, and operator overloading functions. The printColor function does not contribute to the Color class functionality as required by the task.",
+    "raw_output": "Score: 3\nRationale: The student's submission does not meet the requirements of the task. The class definition is incomplete as it lacks private member variables for red, green, and blue, and the required constructors, setters, getters, and operator overloading functions. The printColor function does not contribute to the Color class functionality as required by the task."
+  },
+  {
+    "index": 32,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 6 integers using poin",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty arrays, negative numbers, zero). The boundary conditions are not handled.",
+    "pred_rationale": "The student's submission compiles and implements the required functions for counting perfect squares, finding the smallest odd number, and calculating the sum of numbers divisible by 3. However, there is a minor issue in the smallestOdd function where the condition for finding the smallest odd number should be *(appleBox+i)%2 != 0 instead of *(appleBox+i)%2 == 0. This will not affect the correctness of the program but is a style flaw and inefficiency.",
+    "raw_output": "Score: 4\nRationale: The student's submission compiles and implements the required functions for counting perfect squares, finding the smallest odd number, and calculating the sum of numbers divisible by 3. However, there is a minor issue in the smallestOdd function where the condition for finding the smallest odd number should be *(appleBox+i)%2 != 0 instead of *(appleBox+i)%2 == 0. This will not affect the correctness of the program but is a style flaw and inefficiency."
+  },
+  {
+    "index": 33,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student's submission correctly implements the `isArmstrong` function and the `countArmstrong` function. Both functions work as intended and follow the given logic. The `secondLargest` function is also correctly implemented, although the student uses `eee` instead of `tomato` as the name for the second largest value.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the `isArmstrong` function and the `countArmstrong` function. Both functions work as intended and follow the given logic. The `secondLargest` function is also correctly implemented, although the student uses `eee` instead of `tomato` as the name for the second largest value. This is a minor style issue and does not affect the functionality of the program. Overall, the student's submission is fully correct and follows best practices."
+  },
+  {
+    "index": 34,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The core algorithm is solid and produces correct results in most cases. However, the program reads one fewer element than specified in the task, so one data point is always missing from the analysis.",
+    "pred_rationale": "The student's submission partially implements the required functions. The `isPrime` function checks for prime numbers correctly, but it has a mistake in the loop condition: it should iterate from `i=2` to `i<=sqrt(n)` instead of `i<n`. This issue may cause incorrect results for larger prime numbers.",
+    "raw_output": "Score: 3\nRationale: The student's submission partially implements the required functions. The `isPrime` function checks for prime numbers correctly, but it has a mistake in the loop condition: it should iterate from `i=2` to `i<=sqrt(n)` instead of `i<n`. This issue may cause incorrect results for larger prime numbers. The `isArmstrong` function is missing entirely. Therefore, the submission only checks for prime numbers and does not meet the full requirements of the task."
+  },
+  {
+    "index": 35,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The code compiles and runs, but the sorting step modifies data that other functions depend on, causing cascading errors in the final output.",
+    "pred_rationale": "The student's submission compiles and runs correctly, handles positive and negative numbers correctly, uses meaningful variable names, uses vector traversal efficiently, and correctly calculates the largest, smallest, and average numbers. The only difference from the reference solution is the incorrect calculation of the average, which is easily corrected by dividing the sum by n with a double type and then casting it back to int for the output. However, this error does not affect the correctness of the program.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and runs correctly, handles positive and negative numbers correctly, uses meaningful variable names, uses vector traversal efficiently, and correctly calculates the largest, smallest, and average numbers. The only difference from the reference solution is the incorrect calculation of the average, which is easily corrected by dividing the sum by n with a double type and then casting it back to int for the output. However, this error does not affect the correctness of the program."
+  },
+  {
+    "index": 36,
+    "task_snippet": "Design an abstract base class 'Shape' and a derived class 'Circle'. The 'Shape' ",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student's submission correctly declares the base class 'Shape' as abstract using pure virtual syntax, includes a virtual destructor in the base class to prevent resource leaks, properly delegates member initialization to the base constructor via an initialization list, implements the overriding function 'getArea()' in the derived class 'Circle' using matching signatures ('const' and parameters), and ensures an architectural flow immune to object slicing by using the derived class object 'Circle' as the function argument in the 'printArea()' function.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly declares the base class 'Shape' as abstract using pure virtual syntax, includes a virtual destructor in the base class to prevent resource leaks, properly delegates member initialization to the base constructor via an initialization list, implements the overriding function 'getArea()' in the derived class 'Circle' using matching signatures ('const' and parameters), and ensures an architectural flow immune to object slicing by using the derived class object 'Circle' as the function argument in the 'printArea()' function."
+  },
+  {
+    "index": 37,
+    "task_snippet": "Design a class 'Color' that represents an RGB color profile. The class must cont",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Good, working solution. The student chose a slightly inefficient approach for one of the functions (using two passes where one would suffice), but it produces correct results and is easy to read.",
+    "pred_rationale": "The student's submission compiles and implements the core structure of the Color class, including the constructor, copy constructor, setters, getters, and the '<<' operator. However, it fails to meet the rubric's requirements in a few areas:\n\n1. The '+' operator overloading is incorrect.",
+    "raw_output": "Score: 4\n\nRationale: The student's submission compiles and implements the core structure of the Color class, including the constructor, copy constructor, setters, getters, and the '<<' operator. However, it fails to meet the rubric's requirements in a few areas:\n\n1. The '+' operator overloading is incorrect. The student returns a new Color object instead of using the copy constructor to create a new object.\n2. The '==' operator overloading is incorrect. The student compares the Color objects using their member variables directly instead of using the 'this' pointer"
+  },
+  {
+    "index": 38,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The code is correct, complete, and idiomatic. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The `countOdd` function counts odd numbers, the `averagePositive` function calculates the average of positive numbers, and the `isAscending` function checks if the array is sorted in ascending order. The main function correctly reads integers from the user and calls these functions to produce the desired output.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The `countOdd` function counts odd numbers, the `averagePositive` function calculates the average of positive numbers, and the `isAscending` function checks if the array is sorted in ascending order. The main function correctly reads integers from the user and calls these functions to produce the desired output."
+  },
+  {
+    "index": 39,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The logic is correct but the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "pred_rationale": "The student's submission partially compiles and initializes the array, but it lacks the sorting functionality and the linear search function is missing entirely. The implementation only checks for the first occurrence of the key in the unsorted array, which is not an efficient or correct approach for the given task. (Refer to level 3 in the rubric)",
+    "raw_output": "Score: 3\nRationale: The student's submission partially compiles and initializes the array, but it lacks the sorting functionality and the linear search function is missing entirely. The implementation only checks for the first occurrence of the key in the unsorted array, which is not an efficient or correct approach for the given task. (Refer to level 3 in the rubric)"
+  },
+  {
+    "index": 40,
+    "task_snippet": "Write a function 'std::vector<std::pair<std::string, int>> sortWordsByFrequency(",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The code does not compile — there are missing semicolons and undeclared variables that prevent execution entirely. None of the required functionality is present.",
+    "pred_rationale": "The student's submission compiles incorrectly due to a major mistake in the implementation. Instead of pushing back pairs into the vector, the student tries to push back integers, which is not possible since map uses string keys. This results in a compile error.",
+    "raw_output": "Score: 1\nRationale: The student's submission compiles incorrectly due to a major mistake in the implementation. Instead of pushing back pairs into the vector, the student tries to push back integers, which is not possible since map uses string keys. This results in a compile error."
+  },
+  {
+    "index": 41,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The student's submission compiles and runs correctly, handles positive and negative numbers correctly, uses meaningful variable names, uses vector traversal efficiently, and correctly calculates the largest, smallest, and average numbers. The only difference from the reference solution is the index limit in the for loop, which is a minor issue and does not affect the correctness of the program.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and runs correctly, handles positive and negative numbers correctly, uses meaningful variable names, uses vector traversal efficiently, and correctly calculates the largest, smallest, and average numbers. The only difference from the reference solution is the index limit in the for loop, which is a minor issue and does not affect the correctness of the program."
+  },
+  {
+    "index": 42,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The code fails to compile due to basic syntax errors inside the struct definition (missing semicolons on member lines and a missing 'std::' qualifier on the string type). No additional requirements, such as file handling or dynamic memory allocation, are implemented, earning a 1.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions or read the data from the file. It only defines the 'Employee' struct and an empty main function. The dynamic memory allocation and file handling are missing entirely.",
+    "raw_output": "Score: 1\n\nRationale: The student submission does not even attempt to implement the required functions or read the data from the file. It only defines the 'Employee' struct and an empty main function. The dynamic memory allocation and file handling are missing entirely. This submission fails to meet the minimum requirements of the task."
+  },
+  {
+    "index": 43,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The student's submission correctly performs bitwise AND, OR, and XOR operations. However, it checks whether the first number is even or odd using the modulus operator instead of bitwise operators, which is a minor issue.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly performs bitwise AND, OR, and XOR operations. However, it checks whether the first number is even or odd using the modulus operator instead of bitwise operators, which is a minor issue."
+  },
+  {
+    "index": 44,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent work. The file is read correctly, the data is processed accurately, and the error handling covers the case of a missing or unreadable file with a clear message.",
+    "pred_rationale": "The student's submission correctly implements the triangular function, creates a dynamic array using pointers, and calculates the number of odd triangular numbers and the difference between the largest and smallest triangular numbers. The main function reads the input, initializes the array, and prints the required outputs. The implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the triangular function, creates a dynamic array using pointers, and calculates the number of odd triangular numbers and the difference between the largest and smallest triangular numbers. The main function reads the input, initializes the array, and prints the required outputs. The implementation follows best practices."
+  },
+  {
+    "index": 45,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "A reasonable solution that covers the typical path well. It fails silently when the input file cannot be opened — rather than reporting an error, it continues with uninitialised data.",
+    "pred_rationale": "The student's submission only implements the check for even or odd numbers using bitwise operators, but it is missing the part where the student reads the second integer 'b' and performs the bitwise AND, OR, and XOR operations.",
+    "raw_output": "Score: 3\nRationale: The student's submission only implements the check for even or odd numbers using bitwise operators, but it is missing the part where the student reads the second integer 'b' and performs the bitwise AND, OR, and XOR operations."
+  },
+  {
+    "index": 46,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 1,
+    "pred_score": 2,
+    "gold_rationale": "The student appears to have started writing the solution but stopped very early. The resulting file has unfinished control structures and produces no meaningful output.",
+    "pred_rationale": "The student's submission contains a major logical issue. The recursive call in the `factorial` function should be passed `n-1` as an argument, but the student mistakenly used `n` instead. This will result in an infinite recursion loop, as the function will keep calling itself with the same value of `n`.",
+    "raw_output": "Score: 2\nRationale: The student's submission contains a major logical issue. The recursive call in the `factorial` function should be passed `n-1` as an argument, but the student mistakenly used `n` instead. This will result in an infinite recursion loop, as the function will keep calling itself with the same value of `n`. The `main` function is missing the implementation of the Fibonacci function and the logic to calculate and output the Fibonacci value."
+  },
+  {
+    "index": 47,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions 'setTime', 'printTime', and 'increaseTime'. Instead, it only contains the main function with a simple message output. The student has not defined the 'Time' structure, and none of the required functions are implemented.",
+    "raw_output": "Score: 1\n\nRationale: The student submission does not even attempt to implement the required functions 'setTime', 'printTime', and 'increaseTime'. Instead, it only contains the main function with a simple message output. The student has not defined the 'Time' structure, and none of the required functions are implemented. This submission fails to meet the minimum requirements of the task."
+  },
+  {
+    "index": 48,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Correct logic throughout, clean structure, and proper use of functions. The student omitted the 'override' keyword on a virtual method that overrides a base-class function, which is not an error but is considered poor practice.",
+    "pred_rationale": "The student's submission includes all required functions: `countOdd`, `averagePositive`, and `isAscending`. The `countOdd` and `isAscending` functions work correctly for all cases, and the `averagePositive` function correctly calculates the average of positive numbers. The implementation follows best practices, such as using descriptive variable names and properly declaring function return types.",
+    "raw_output": "Score: 5\nRationale: The student's submission includes all required functions: `countOdd`, `averagePositive`, and `isAscending`. The `countOdd` and `isAscending` functions work correctly for all cases, and the `averagePositive` function correctly calculates the average of positive numbers. The implementation follows best practices, such as using descriptive variable names and properly declaring function return types."
+  },
+  {
+    "index": 49,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "Pointer arithmetic is used but with an incorrect offset calculation, producing results that are shifted by one element from what is expected.",
+    "pred_rationale": "The student's submission compiles and includes the reverseString function, but it is missing the countVowels and isPalindrome functions, and the main function does not print the output in the required format. (Reference rubric level 3)",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and includes the reverseString function, but it is missing the countVowels and isPalindrome functions, and the main function does not print the output in the required format. (Reference rubric level 3)"
+  },
+  {
+    "index": 50,
+    "task_snippet": "Design a 'Rectangle' class in C++. The class should have private member variable",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Most of the required functionality is implemented and works correctly for typical inputs. One section — the output formatting — does not match the expected layout.",
+    "pred_rationale": "The student's submission is identical to the reference solution, with the only difference being the logic in the isSquare() method. However, this difference does not affect the correctness of the implementation, as the student's logic still checks if the width and height are equal to determine if the rectangle is a square. Therefore, the student's submission meets all the requirements and is fully correct.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, with the only difference being the logic in the isSquare() method. However, this difference does not affect the correctness of the implementation, as the student's logic still checks if the width and height are equal to determine if the rectangle is a square. Therefore, the student's submission meets all the requirements and is fully correct."
+  },
+  {
+    "index": 51,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "The overall structure is there and the student clearly understood what was needed, but several functions produce wrong results due to off-by-one errors or incorrect operators.",
+    "pred_rationale": "The student's submission partially compiles and initializes an array, but it lacks the required functions to find the maximum value, minimum value, average, and number of even numbers. The submission only calculates the sum of the array elements.",
+    "raw_output": "Score: 3\nRationale: The student's submission partially compiles and initializes an array, but it lacks the required functions to find the maximum value, minimum value, average, and number of even numbers. The submission only calculates the sum of the array elements."
+  },
+  {
+    "index": 52,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The student has implemented every required component correctly. The code compiles without warnings, handles all edge cases, and produces accurate results across the full input range.",
+    "pred_rationale": "The student's submission correctly reads the matrix, calculates the sums of the main and secondary diagonals, and checks for symmetry. The implementation follows the reference solution closely, with only minor differences in variable naming and formatting.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly reads the matrix, calculates the sums of the main and secondary diagonals, and checks for symmetry. The implementation follows the reference solution closely, with only minor differences in variable naming and formatting."
+  },
+  {
+    "index": 53,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Almost no useful code is present. The main function is missing or trivial, and the required operations are absent entirely.",
+    "pred_rationale": "The student's submission does not compile due to the use of an undefined exception type 'FileMissingException'. The required exception types 'std::runtime_error', 'std::invalid_argument', and 'std::domain_error' are not implemented. The 'computeAverage' function does not contain any logic to read integers from the file, compute their sum, or check for empty files.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not compile due to the use of an undefined exception type 'FileMissingException'. The required exception types 'std::runtime_error', 'std::invalid_argument', and 'std::domain_error' are not implemented. The 'computeAverage' function does not contain any logic to read integers from the file, compute their sum, or check for empty files. The function returns a hardcoded value of 1.0 without any error handling or exception throwing."
+  },
+  {
+    "index": 54,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement dynamic arrays, triangular numbers, or any required functionality.",
+    "pred_rationale": "The student's submission does not even attempt to implement the required functions for calculating triangular numbers, counting odd numbers, or finding the difference between the largest and smallest triangular numbers. Instead, it includes an unrelated function `hi()` that prints \"numbers\" to the console. This submission does not compile or implement any of the required functionality.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not even attempt to implement the required functions for calculating triangular numbers, counting odd numbers, or finding the difference between the largest and smallest triangular numbers. Instead, it includes an unrelated function `hi()` that prints \"numbers\" to the console. This submission does not compile or implement any of the required functionality."
+  },
+  {
+    "index": 55,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This program would crash on any input. Array indexing goes out of bounds and no checks are in place to catch the resulting undefined behaviour.",
+    "pred_rationale": "The student's submission is mostly missing or non-functional as it does not include the required functions countOdd(), calculate the average of positive numbers, and determine whether the array is sorted in ascending order. The main function is incomplete and does not even initialize the array kiwi[7].",
+    "raw_output": "Score: 1\nRationale: The student's submission is mostly missing or non-functional as it does not include the required functions countOdd(), calculate the average of positive numbers, and determine whether the array is sorted in ascending order. The main function is incomplete and does not even initialize the array kiwi[7]."
+  },
+  {
+    "index": 56,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The student's submission correctly defines the Employee class with private data members name, salary, and yearsOfService. It implements constructors, a function to calculate yearly salary, a function to determine if the employee is eligible for promotion, and overloads the > operator to compare salaries between two employees. The submission compiles and runs correctly, producing the expected output for the given test cases.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly defines the Employee class with private data members name, salary, and yearsOfService. It implements constructors, a function to calculate yearly salary, a function to determine if the employee is eligible for promotion, and overloads the > operator to compare salaries between two employees. The submission compiles and runs correctly, producing the expected output for the given test cases."
+  },
+  {
+    "index": 57,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent submission. The algorithm is efficient, the code is clean and well-organised, and all the required functionality is present and working correctly.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The `isPerfect` function checks if a number is perfect, the `isCube` function checks if a number is a cube, the `countPerfect` function counts the perfect numbers in an array, the `smallestDivisibleSeven` function finds the smallest number divisible by 7 in an array, and the `sumCubeNumbers` function calculates the sum of cube numbers in an array. The main function reads the input and calls these functions correctly.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The `isPerfect` function checks if a number is perfect, the `isCube` function checks if a number is a cube, the `countPerfect` function counts the perfect numbers in an array, the `smallestDivisibleSeven` function finds the smallest number divisible by 7 in an array, and the `sumCubeNumbers` function calculates the sum of cube numbers in an array. The main function reads the input and calls these functions correctly. The implementation follows best"
+  },
+  {
+    "index": 58,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "Good overall structure and the functions are separated properly. The calculation is correct but the result is not returned — it is printed inside the function instead of being passed back to main.",
+    "pred_rationale": "The student's submission only includes the `countEven` function, and it is missing the functions for finding the maximum value, minimum value, and average. The main function only prints the number of even numbers. (Reference level 3)",
+    "raw_output": "Score: 3\nRationale: The student's submission only includes the `countEven` function, and it is missing the functions for finding the maximum value, minimum value, and average. The main function only prints the number of even numbers. (Reference level 3)"
+  },
+  {
+    "index": 59,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "The code compiles and runs, but the sorting step modifies data that other functions depend on, causing cascading errors in the final output.",
+    "pred_rationale": "The student's submission has the correct class structure and compiles. However, it is missing the boundary validation checks in the 'set' function and the error handling in the 'get' function as required by the task. The 'set' function does not check if the index is within the bounds of the array, and the 'get' function does not print an error message or return -1 when an out-of-bounds index is provided.",
+    "raw_output": "Score: 3\nRationale: The student's submission has the correct class structure and compiles. However, it is missing the boundary validation checks in the 'set' function and the error handling in the 'get' function as required by the task. The 'set' function does not check if the index is within the bounds of the array, and the 'get' function does not print an error message or return -1 when an out-of-bounds index is provided."
+  },
+  {
+    "index": 60,
+    "task_snippet": "Write a C++ program that reads 9 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required functionality, functions, or calculations.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions for counting composite numbers, finding the smallest palindrome number, or calculating the sum of all numbers greater than the array average. Instead, it only contains the `main()` function with a simple `cout` statement. This submission does not meet the minimum requirements for the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions for counting composite numbers, finding the smallest palindrome number, or calculating the sum of all numbers greater than the array average. Instead, it only contains the `main()` function with a simple `cout` statement. This submission does not meet the minimum requirements for the task."
+  },
+  {
+    "index": 61,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Full marks. The student demonstrates a clear understanding of the task — the logic is sound, the functions are reusable, and the output is properly formatted.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The isPrime function checks for prime numbers using the correct logic. The countNegative function correctly counts the negative numbers in the array.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The isPrime function checks for prime numbers using the correct logic. The countNegative function correctly counts the negative numbers in the array. The sumPrime function correctly calculates the sum of prime numbers in the array. The secondLargest function correctly finds the second largest value in the array. The main function reads the integers from the user and calls all the required functions correctly. The implementation follows best practices."
+  },
+  {
+    "index": 62,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This program would crash on any input. Array indexing goes out of bounds and no checks are in place to catch the resulting undefined behaviour.",
+    "pred_rationale": "The student's submission does not allocate memory dynamically for the array as required in the task. Instead, they assign a value to an uninitialized pointer. This results in undefined behavior and the program may not compile or run correctly.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not allocate memory dynamically for the array as required in the task. Instead, they assign a value to an uninitialized pointer. This results in undefined behavior and the program may not compile or run correctly. (Reference rubric level 1)"
+  },
+  {
+    "index": 63,
+    "task_snippet": "Write a C++ program that reads an integer n and uses separate functions to check",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "pred_rationale": "The student's submission compiles and implements all required functions: isPerfect(), sumDigits(), and reverseNumber(). The isPerfect() function checks if a number is perfect by calculating the sum of its divisors. The sumDigits() function calculates the sum of the digits of a number.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions: isPerfect(), sumDigits(), and reverseNumber(). The isPerfect() function checks if a number is perfect by calculating the sum of its divisors. The sumDigits() function calculates the sum of the digits of a number. The reverseNumber() function reverses a number using pointers. The main function correctly uses these functions and handles user input. The implementation follows best practices."
+  },
+  {
+    "index": 64,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The core algorithm is solid and produces correct results in most cases. However, the program reads one fewer element than specified in the task, so one data point is always missing from the analysis.",
+    "pred_rationale": "The student's submission compiles and has the sumArray function implemented correctly. However, it is missing the reverseArray function, which is a major requirement of the task.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and has the sumArray function implemented correctly. However, it is missing the reverseArray function, which is a major requirement of the task."
+  },
+  {
+    "index": 65,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Correct logic throughout, clean structure, and proper use of functions. The student omitted the 'override' keyword on a virtual method that overrides a base-class function, which is not an error but is considered poor practice.",
+    "pred_rationale": "The student's submission compiles and implements all the required functions, but there is a small issue with the index limit in the sumPrime function. The student iterates up to n-1 instead of n in the for loop. This will cause the last prime number in the array to be skipped.",
+    "raw_output": "Score: 4\n\nRationale: The student's submission compiles and implements all the required functions, but there is a small issue with the index limit in the sumPrime function. The student iterates up to n-1 instead of n in the for loop. This will cause the last prime number in the array to be skipped. However, since the prime numbers are typically a small subset of the given array, this issue may not affect the correctness of the output for most inputs."
+  },
+  {
+    "index": 66,
+    "task_snippet": "Write a C++ program that reads 9 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Perfect implementation. The template class is correctly parameterised, the stack operations are all present, memory is managed without leaks, and the boundary conditions are handled.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The isComposite function checks for compositeness, isPalindrome function checks for palindromes, countComposite function counts composite numbers, smallestPalindrome function finds the smallest palindrome, arrayAverage function calculates the array average, and sumGreaterThanAverage function calculates the sum of all numbers greater than the array average. The main function reads the input correctly and calls all the functions to produce the required output.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The isComposite function checks for compositeness, isPalindrome function checks for palindromes, countComposite function counts composite numbers, smallestPalindrome function finds the smallest palindrome, arrayAverage function calculates the array average, and sumGreaterThanAverage function calculates the sum of all numbers greater than the array average. The main function reads the input correctly and calls all the functions to produce the required output."
+  },
+  {
+    "index": 67,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "The main algorithm has the right idea but uses integer division where floating-point is needed, causing truncated and inaccurate results for the average.",
+    "pred_rationale": "The student's submission does not include the isPalindrome function, countVowels function, or countConsonants function as required by the task. The main function only reads the string and prints it without any further processing.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not include the isPalindrome function, countVowels function, or countConsonants function as required by the task. The main function only reads the string and prints it without any further processing."
+  },
+  {
+    "index": 68,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The student submission does not even attempt to implement the required bitwise operations. Instead, it only prints the string \"answer\" and returns 0. This submission does not meet the minimum requirements for the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required bitwise operations. Instead, it only prints the string \"answer\" and returns 0. This submission does not meet the minimum requirements for the task."
+  },
+  {
+    "index": 69,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The student's submission compiles and calculates the sums of the main and secondary diagonals correctly. However, it is missing the symmetry check, which is a major requirement. Therefore, the submission only meets the third level of the rubric.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and calculates the sums of the main and secondary diagonals correctly. However, it is missing the symmetry check, which is a major requirement. Therefore, the submission only meets the third level of the rubric."
+  },
+  {
+    "index": 70,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student's submission compiles and implements all three required functions: `productEven`, `countDivThree`, and an implicit `findSmallestOdd`. The `productEven` function correctly calculates the product of even numbers in the array, and the `countDivThree` function correctly counts the number of elements divisible by 3. The student's implementation follows best practices and correctly handles array indices in the for loops.",
+    "raw_output": "Score: 5\n\nRationale: The student's submission compiles and implements all three required functions: `productEven`, `countDivThree`, and an implicit `findSmallestOdd`. The `productEven` function correctly calculates the product of even numbers in the array, and the `countDivThree` function correctly counts the number of elements divisible by 3. The student's implementation follows best practices and correctly handles array indices in the for loops. No major issues were identified."
+  },
+  {
+    "index": 71,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Complete and correct solution. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "pred_rationale": "The student's submission is identical to the reference solution. All required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution. All required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices."
+  },
+  {
+    "index": 72,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The overall structure is there and the student clearly understood what was needed, but several functions produce wrong results due to off-by-one errors or incorrect operators.",
+    "pred_rationale": "The student's submission compiles and implements the required functions, but there is a mistake in the `hasConsecutiveDuplicates` function. Instead of checking if the current character is not equal to the next character, it checks if they are equal. This will cause the function to return `true` for consecutive duplicate characters, which is the opposite of what is required.",
+    "raw_output": "Score: 4\n\nRationale: The student's submission compiles and implements the required functions, but there is a mistake in the `hasConsecutiveDuplicates` function. Instead of checking if the current character is not equal to the next character, it checks if they are equal. This will cause the function to return `true` for consecutive duplicate characters, which is the opposite of what is required. The rest of the code is correct."
+  },
+  {
+    "index": 73,
+    "task_snippet": "Write a function 'std::vector<std::pair<std::string, int>> sortWordsByFrequency(",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Mostly functional code with an issue in the edge-case handling: the program produces correct results when given at least two elements, but crashes or gives garbage for a single-element input.",
+    "pred_rationale": "The student's submission is identical to the reference solution, with the only difference being the name of the comparison function. The student's 'sortComp' function is equivalent to the reference solution's 'frequencyComparator' function. Both functions correctly handle the primary frequency criteria and the tie-breaker for words with the same frequency.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, with the only difference being the name of the comparison function. The student's 'sortComp' function is equivalent to the reference solution's 'frequencyComparator' function. Both functions correctly handle the primary frequency criteria and the tie-breaker for words with the same frequency. The implementation follows best practices by using a map to count word frequencies and then transferring the map elements to a vector for sorting."
+  },
+  {
+    "index": 74,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The recursive base case is missing, so the function enters infinite recursion for certain inputs and causes a stack overflow.",
+    "pred_rationale": "The student's submission correctly implements the ComplexNumber class with private data members real and imag, and the constructors, display function, and operator overloading for +, -, and == are present. However, there is a mistake in the implementation of the addition operator. The student has incorrectly swapped real and imag in the addition operator implementation.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly implements the ComplexNumber class with private data members real and imag, and the constructors, display function, and operator overloading for +, -, and == are present. However, there is a mistake in the implementation of the addition operator. The student has incorrectly swapped real and imag in the addition operator implementation. This would result in subtraction instead of addition when using the + operator. (Reference level 4)"
+  },
+  {
+    "index": 75,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The main algorithm has the right idea but uses integer division where floating-point is needed, causing truncated and inaccurate results for the average.",
+    "pred_rationale": "The student's submission compiles and implements the `isPrime` and `isPalindrome` functions correctly. However, the `countDivisible` function has an issue where it counts numbers divisible by either 2 or 5 instead of both. This results in incorrect output for some inputs.",
+    "raw_output": "Score: 4\nRationale: The student's submission compiles and implements the `isPrime` and `isPalindrome` functions correctly. However, the `countDivisible` function has an issue where it counts numbers divisible by either 2 or 5 instead of both. This results in incorrect output for some inputs. The `countDivisible` function in the reference solution checks for both conditions (`if(kiwiBox[i]%2==0 && kiwiBox[i]%5==0)`). The student's submission should be updated to meet this requirement.\n"
+  },
+  {
+    "index": 76,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 8 integers using poin",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement arrays, pointers, functions, or any required calculations.",
+    "pred_rationale": "The student's submission does not even attempt to implement the required functions for counting prime numbers, finding the smallest even number, and calculating the product of all negative numbers in the array. Instead, it only prints the string \"Pointers\" in the main function. This submission does not meet the minimum requirements of the task.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not even attempt to implement the required functions for counting prime numbers, finding the smallest even number, and calculating the product of all negative numbers in the array. Instead, it only prints the string \"Pointers\" in the main function. This submission does not meet the minimum requirements of the task."
+  },
+  {
+    "index": 77,
+    "task_snippet": "Write a function 'bool isBalanced(const std::string& expression)' in C++ that us",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "pred_rationale": "The student's submission contains a compile error due to the incorrect use of the stack. Instead of using the `push_back` method, which is used for vectors, the student should have used the `push` method, which is used for stacks. This demonstrates a lack of understanding of the stack data structure and its methods.",
+    "raw_output": "Score: 1\n\nRationale: The student's submission contains a compile error due to the incorrect use of the stack. Instead of using the `push_back` method, which is used for vectors, the student should have used the `push` method, which is used for stacks. This demonstrates a lack of understanding of the stack data structure and its methods."
+  },
+  {
+    "index": 78,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The student has implemented every required component correctly. The code compiles without warnings, handles all edge cases, and produces accurate results across the full input range.",
+    "pred_rationale": "The student's submission correctly implements the reverseArray, sumOdd, and countGreaterThanAverage functions. The main function dynamically allocates an array of 5 integers using a pointer and correctly calls these functions. The implementation follows best practices and the output is properly formatted.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the reverseArray, sumOdd, and countGreaterThanAverage functions. The main function dynamically allocates an array of 5 integers using a pointer and correctly calls these functions. The implementation follows best practices and the output is properly formatted."
+  },
+  {
+    "index": 79,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement dynamic memory allocation or any required functions.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions for reversing the array, calculating the sum of odd numbers, or counting elements greater than the average. Instead, it only contains the `main()` function that prints the string \"Pointers\" to the console. This submission does not meet the minimum requirements for the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions for reversing the array, calculating the sum of odd numbers, or counting elements greater than the average. Instead, it only contains the `main()` function that prints the string \"Pointers\" to the console. This submission does not meet the minimum requirements for the task."
+  },
+  {
+    "index": 80,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices."
+  },
+  {
+    "index": 81,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The `isPrime` function checks for prime numbers, the `isPalindrome` function checks for palindrome numbers, the `countDivisible` function counts the number of integers divisible by both 2 and 5, the `largestPrime` function finds the largest prime number, and the `palindromeSum` function calculates the sum of palindrome numbers. The implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The `isPrime` function checks for prime numbers, the `isPalindrome` function checks for palindrome numbers, the `countDivisible` function counts the number of integers divisible by both 2 and 5, the `largestPrime` function finds the largest prime number, and the `palindromeSum` function calculates the sum of palindrome numbers. The implementation follows best practices."
+  },
+  {
+    "index": 82,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "Two of the four required functions work as expected. The other two contain logic errors that produce incorrect results without crashing.",
+    "pred_rationale": "The student's submission compiles and implements the reverseArray() and sumOdd() functions correctly. However, the average() function is missing in the student's submission. This function is required to calculate the average of the array elements, and its absence causes the program to fail to meet all major requirements.",
+    "raw_output": "Score: 4\nRationale: The student's submission compiles and implements the reverseArray() and sumOdd() functions correctly. However, the average() function is missing in the student's submission. This function is required to calculate the average of the array elements, and its absence causes the program to fail to meet all major requirements. The student's submission works for trivial cases only, and the missing average() function prevents the correct calculation of the sum of elements greater than the average."
+  },
+  {
+    "index": 83,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All five required operations produce correct results. The code is easy to follow and would not need changes to work correctly with a different input size.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all required functions work correctly for all cases, output is properly formatted, and the implementation follows best practices."
+  },
+  {
+    "index": 84,
+    "task_snippet": "Write a function 'bool isBalanced(const std::string& expression)' in C++ that us",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Three of the four required components are correct. The fourth has a subtle logic error that only manifests on boundary values, suggesting the student tested with typical cases only.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all major requirements are implemented correctly and the implementation follows best practices. The student correctly pushes all open brackets onto the stack, validates the stack is not empty before accessing its top element, accurately pairs closing brackets with corresponding openers, and confirms the stack is completely empty at the end.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all major requirements are implemented correctly and the implementation follows best practices. The student correctly pushes all open brackets onto the stack, validates the stack is not empty before accessing its top element, accurately pairs closing brackets with corresponding openers, and confirms the stack is completely empty at the end."
+  },
+  {
+    "index": 85,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Every requirement is satisfied. The recursive functions correctly handle both the base and recursive cases, the iterative counterparts are also present, and results are identical for both.",
+    "pred_rationale": "The student's submission matches the reference solution exactly, implementing a ComplexNumber class with constructors, a display function, and operator overloading for +, -, and ==.",
+    "raw_output": "Score: 5\nRationale: The student's submission matches the reference solution exactly, implementing a ComplexNumber class with constructors, a display function, and operator overloading for +, -, and ==."
+  },
+  {
+    "index": 86,
+    "task_snippet": "Design a class 'Complex' representing a complex number with private double varia",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "Correct and well-structured. The student correctly implements all required operations; the small deduction is for using a magic number in one place where a named constant or parameter would be clearer.",
+    "pred_rationale": "The student's submission compiles and has the correct class structure, but it misses const-correctness for getter functions and an inefficient pass-by-value for the operator+ function.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and has the correct class structure, but it misses const-correctness for getter functions and an inefficient pass-by-value for the operator+ function."
+  },
+  {
+    "index": 87,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Mostly functional code with an issue in the edge-case handling: the program produces correct results when given at least two elements, but crashes or gives garbage for a single-element input.",
+    "pred_rationale": "The student's submission correctly reads the matrix, checks for symmetry, and outputs the result. The implementation follows the same approach as the reference solution, with the only difference being the order of the nested loops in the symmetry check. This difference does not affect the correctness of the implementation.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly reads the matrix, checks for symmetry, and outputs the result. The implementation follows the same approach as the reference solution, with the only difference being the order of the nested loops in the symmetry check. This difference does not affect the correctness of the implementation."
+  },
+  {
+    "index": 88,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This submission is essentially a skeleton: the function signatures are declared but the bodies are empty or contain placeholder logic that does nothing useful.",
+    "pred_rationale": "The student's submission is mostly missing or non-functional. The array `arr` is not initialized, and the `main` function does not read integers into the array or call the required functions to count Armstrong numbers, find the second largest value, and calculate the average of positive numbers only. The `isArmstrong` function in the reference solution is incomplete and does not implement the logic to check if a number is an Armstrong number.",
+    "raw_output": "Score: 1\nRationale: The student's submission is mostly missing or non-functional. The array `arr` is not initialized, and the `main` function does not read integers into the array or call the required functions to count Armstrong numbers, find the second largest value, and calculate the average of positive numbers only. The `isArmstrong` function in the reference solution is incomplete and does not implement the logic to check if a number is an Armstrong number. However, since the student's submission does not even attempt to implement the required functions, it receives a score of 1."
+  },
+  {
+    "index": 89,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "There is a reasonable attempt at the algorithm, but the loop bounds are wrong — iterating one position past the array end leads to inconsistent output.",
+    "pred_rationale": "The student's submission compiles but contains major errors. The 'main' function allocates a single 'Time' structure instead of an array of 'Time' structures. Additionally, the 'setTime' function is not called for each appointment in the array, and the 'appointments' pointer is not deallocated before exiting the program.",
+    "raw_output": "Score: 2\nRationale: The student's submission compiles but contains major errors. The 'main' function allocates a single 'Time' structure instead of an array of 'Time' structures. Additionally, the 'setTime' function is not called for each appointment in the array, and the 'appointments' pointer is not deallocated before exiting the program."
+  },
+  {
+    "index": 90,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Fundamental syntax errors throughout the file mean the program cannot run. The student has attempted to sketch an approach but left critical gaps unfilled.",
+    "pred_rationale": "The student's submission is completely broken as it does not include the isPrime and isArmstrong functions, which are required for the program to check whether a number is prime or Armstrong.",
+    "raw_output": "Score: 1\nRationale: The student's submission is completely broken as it does not include the isPrime and isArmstrong functions, which are required for the program to check whether a number is prime or Armstrong."
+  },
+  {
+    "index": 91,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function uses a local variable name that shadows a parameter, which compilers warn about and could cause confusion in maintenance.",
+    "pred_rationale": "The student's submission correctly implements the `reverseString` function and uses it in the `main` function. However, the `isPalindrome` function is missing the output statement, and the `countVowels` function is missing entirely. The student also incorrectly prints the result of `isPalindrome` instead of a string representation in the `main` function.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly implements the `reverseString` function and uses it in the `main` function. However, the `isPalindrome` function is missing the output statement, and the `countVowels` function is missing entirely. The student also incorrectly prints the result of `isPalindrome` instead of a string representation in the `main` function. The submission follows the rubric level 4 as the core structure exists, and the `reverseString` function works correctly. However, it misses implementing one major requirement (`countVowels`"
+  },
+  {
+    "index": 92,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "pred_rationale": "The student's submission is identical to the reference solution. Both the student and the reference solution dynamically allocate an array using pointers, read 5 integers, find the maximum and minimum values, and deallocate the memory. Therefore, the student's submission is fully correct according to the rubric.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution. Both the student and the reference solution dynamically allocate an array using pointers, read 5 integers, find the maximum and minimum values, and deallocate the memory. Therefore, the student's submission is fully correct according to the rubric."
+  },
+  {
+    "index": 93,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The student's submission attempts the right approach but has major errors. The core logic is broken as it only prints the loaded count and does not implement the required functions to print all employees' details, find the employee with the highest salary, or calculate the average salary. The submission works for trivial cases only, as it only reads the data from the file and stores it in an array, but it fails to meet the full requirements of the task.",
+    "raw_output": "Score: 2\nRationale: The student's submission attempts the right approach but has major errors. The core logic is broken as it only prints the loaded count and does not implement the required functions to print all employees' details, find the employee with the highest salary, or calculate the average salary. The submission works for trivial cases only, as it only reads the data from the file and stores it in an array, but it fails to meet the full requirements of the task."
+  },
+  {
+    "index": 94,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 6 integers using poin",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission contains syntax errors, uses an uninitialized pointer, and does not implement any required functionality.",
+    "pred_rationale": "The student's submission is mostly missing or non-functional. The code does not dynamically allocate an array of 6 integers using pointers as required. Instead, it initializes an uninitialized pointer `arr` and assigns an integer value to it.",
+    "raw_output": "Score: 1\nRationale: The student's submission is mostly missing or non-functional. The code does not dynamically allocate an array of 6 integers using pointers as required. Instead, it initializes an uninitialized pointer `arr` and assigns an integer value to it. This is not a valid array allocation using pointers. The required functions for counting perfect squares, finding the smallest odd number, and calculating the sum of numbers divisible by 3 are not implemented at all."
+  },
+  {
+    "index": 95,
+    "task_snippet": "Write a C++ program that reads two integers representing the numerator and denom",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The student submission compiles but it only implements the `main` function, and it does not contain the required functions for simplifying the fraction, checking coprime numbers, or calculating the decimal value. (Reference level 3)",
+    "raw_output": "Score: 3\nRationale: The student submission compiles but it only implements the `main` function, and it does not contain the required functions for simplifying the fraction, checking coprime numbers, or calculating the decimal value. (Reference level 3)"
+  },
+  {
+    "index": 96,
+    "task_snippet": "Write a C++ program using a 2D array that reads a 3x3 matrix from the user and c",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The student's submission correctly uses a 2D array, reads all matrix values, calculates the total sum accurately, and the code is clean and efficient. It follows the given reference solution closely.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly uses a 2D array, reads all matrix values, calculates the total sum accurately, and the code is clean and efficient. It follows the given reference solution closely."
+  },
+  {
+    "index": 97,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The student's submission correctly reads the matrices and performs matrix addition. However, it lacks the matrix multiplication functionality, which is a major requirement. The submission is mostly correct with only a missing calculation.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly reads the matrices and performs matrix addition. However, it lacks the matrix multiplication functionality, which is a major requirement. The submission is mostly correct with only a missing calculation."
+  },
+  {
+    "index": 98,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "Some core calculations work, but the output section is broken: values are printed in the wrong order or with no formatting, making it hard to verify correctness.",
+    "pred_rationale": "The student's submission only calculates the sum of the main diagonal, but it is missing the calculation of the secondary diagonal and the symmetry check. The submission does not even declare the matrix 'a' properly, and it does not initialize the elements of the matrix. The submission only initializes an integer variable 'sum' and performs the diagonal sum calculation.",
+    "raw_output": "Score: 3\nRationale: The student's submission only calculates the sum of the main diagonal, but it is missing the calculation of the secondary diagonal and the symmetry check. The submission does not even declare the matrix 'a' properly, and it does not initialize the elements of the matrix. The submission only initializes an integer variable 'sum' and performs the diagonal sum calculation. The submission does not meet the minimum requirements for the task."
+  },
+  {
+    "index": 99,
+    "task_snippet": "Design a class 'Color' that represents an RGB color profile. The class must cont",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The student's submission matches the reference solution exactly, implementing all required functions and features as specified in the task. The class structure, constructor, copy constructor, setters, getters, '+' operator overloading, '==' operator overloading, and '<<' operator overloading as a non-member friend function are all correctly implemented and follow best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission matches the reference solution exactly, implementing all required functions and features as specified in the task. The class structure, constructor, copy constructor, setters, getters, '+' operator overloading, '==' operator overloading, and '<<' operator overloading as a non-member friend function are all correctly implemented and follow best practices."
+  },
+  {
+    "index": 100,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The student's submission matches the reference solution exactly, implementing all required functions and operator overloading correctly.",
+    "raw_output": "Score: 5\nRationale: The student's submission matches the reference solution exactly, implementing all required functions and operator overloading correctly."
+  },
+  {
+    "index": 101,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "There is a reasonable attempt at the algorithm, but the loop bounds are wrong — iterating one position past the array end leads to inconsistent output.",
+    "pred_rationale": "The student's submission is identical to the reference solution, with no missing functions or major logical issues. Both the triangular number calculation and the array filling function work correctly, as do the countOdd and differenceLargestSmallest functions. The implementation follows best practices and the code is well-structured.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, with no missing functions or major logical issues. Both the triangular number calculation and the array filling function work correctly, as do the countOdd and differenceLargestSmallest functions. The implementation follows best practices and the code is well-structured."
+  },
+  {
+    "index": 102,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "Two of the four required functions work as expected. The other two contain logic errors that produce incorrect results without crashing.",
+    "pred_rationale": "The student's submission correctly reads 10 integers into an array, sorts the array using bubble sort, and searches for a given number using linear search. The implementation follows the given rubric and the reference solution closely. The only difference is the condition in the inner for loop of the sorting function, which checks for arr[j] < arr[j+1] instead of arr[j] > arr[j+1].",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly reads 10 integers into an array, sorts the array using bubble sort, and searches for a given number using linear search. The implementation follows the given rubric and the reference solution closely. The only difference is the condition in the inner for loop of the sorting function, which checks for arr[j] < arr[j+1] instead of arr[j] > arr[j+1]. However, this difference does not affect the correctness of the implementation."
+  },
+  {
+    "index": 103,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function uses a local variable name that shadows a parameter, which compilers warn about and could cause confusion in maintenance.",
+    "pred_rationale": "The student's submission correctly implements the maxVal, minVal, and average functions, and also calculates the number of even numbers in the array. The main function processes the array correctly and calls these functions to obtain the required results. The only minor issue is that the count of even numbers is printed as an integer instead of being formatted as part of the output, but this does not affect the correctness of the implementation.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the maxVal, minVal, and average functions, and also calculates the number of even numbers in the array. The main function processes the array correctly and calls these functions to obtain the required results. The only minor issue is that the count of even numbers is printed as an integer instead of being formatted as part of the output, but this does not affect the correctness of the implementation."
+  },
+  {
+    "index": 104,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All five required operations produce correct results. The code is easy to follow and would not need changes to work correctly with a different input size.",
+    "pred_rationale": "The student's submission is identical to the reference solution, meaning all required functions (countVowels, reverseString, and isPalindrome) are fully implemented and work correctly for all cases.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, meaning all required functions (countVowels, reverseString, and isPalindrome) are fully implemented and work correctly for all cases."
+  },
+  {
+    "index": 105,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "Near-perfect implementation. A very minor issue is that the program outputs a trailing space after the last number, which does not affect correctness but deviates from the expected exact format.",
+    "pred_rationale": "The student's submission compiles and has the linear search function implemented correctly. However, the bubble sort function is missing from the submission. Therefore, the array is not sorted before searching for the given number.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and has the linear search function implemented correctly. However, the bubble sort function is missing from the submission. Therefore, the array is not sorted before searching for the given number. This submission meets the level 3 in the rubric as it has a partially correct implementation with missing required functionality."
+  },
+  {
+    "index": 106,
+    "task_snippet": "Design an abstract base class 'Shape' and a derived class 'Circle'. The 'Shape' ",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The program produces correct output for all tested inputs. The only thing missing is that the destructor does not release the dynamically allocated buffer, which would cause a memory leak in any real application.",
+    "pred_rationale": "The student's submission correctly declares the base class 'Shape' as abstract using pure virtual syntax, includes a virtual destructor in the base class to prevent resource leaks, properly delegates member initialization to the base constructor via an initialization list, implements the overriding function 'getArea()' in the derived class 'Circle' using matching signatures ('const' and parameters), and ensures an architectural flow immune to object slicing by using inheritance and polymorphism.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly declares the base class 'Shape' as abstract using pure virtual syntax, includes a virtual destructor in the base class to prevent resource leaks, properly delegates member initialization to the base constructor via an initialization list, implements the overriding function 'getArea()' in the derived class 'Circle' using matching signatures ('const' and parameters), and ensures an architectural flow immune to object slicing by using inheritance and polymorphism."
+  },
+  {
+    "index": 107,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "The logic is correct but the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "pred_rationale": "The student's submission compiles and implements the 'setTime' and 'printTime' functions correctly. However, it fails to handle the roll-over logic in the 'increaseTime' function properly. When adding more than 23 hours, the hour counter does not wrap around to zero, causing incorrect results.",
+    "raw_output": "Score: 4\n\nRationale: The student's submission compiles and implements the 'setTime' and 'printTime' functions correctly. However, it fails to handle the roll-over logic in the 'increaseTime' function properly. When adding more than 23 hours, the hour counter does not wrap around to zero, causing incorrect results. The dynamic memory allocation and deallocation are correctly implemented. The output formatting is also correct, but the 'const' keyword is missing from the 'printTime' function declaration."
+  },
+  {
+    "index": 108,
+    "task_snippet": "Write a C++ program that reads 9 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "Two of the four required functions work as expected. The other two contain logic errors that produce incorrect results without crashing.",
+    "pred_rationale": "The student's submission is identical to the reference solution, with no missing functions or major issues. The implementation of the isComposite and isPalindrome functions is correct and follows best practices. The student correctly uses these functions in the countComposite, smallestPalindrome, arrayAverage, and sumGreaterThanAverage functions.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, with no missing functions or major issues. The implementation of the isComposite and isPalindrome functions is correct and follows best practices. The student correctly uses these functions in the countComposite, smallestPalindrome, arrayAverage, and sumGreaterThanAverage functions. The submission compiles and produces the correct output for all test cases."
+  },
+  {
+    "index": 109,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "The program only calculates the maximum value and completely ignores the minimum and average requirements. It also does not use vectors as required in the task. Edge cases with negative numbers are handled incorrectly because max is initialized to 0. The submission is incomplete and does not satisfy the assignment objectives.",
+    "pred_rationale": "The student's submission compiles and runs successfully, but it only finds the largest number and does not implement the functions to find the smallest number and calculate the average.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and runs successfully, but it only finds the largest number and does not implement the functions to find the smallest number and calculate the average."
+  },
+  {
+    "index": 110,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Complete and correct solution. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The maxVal, minVal, average, and countEven functions work as expected for all cases, and the main function processes the array correctly and outputs the results. The implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The maxVal, minVal, average, and countEven functions work as expected for all cases, and the main function processes the array correctly and outputs the results. The implementation follows best practices."
+  },
+  {
+    "index": 111,
+    "task_snippet": "Write a C++ program that reads an integer n and uses separate functions to check",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required functionality.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions `isPerfect`, `sumOfDigits`, and `reverseNumberUsingPointers`. The `main` function only prints the input number without taking any input or performing any calculations. This submission does not compile or implement any of the required functionality.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions `isPerfect`, `sumOfDigits`, and `reverseNumberUsingPointers`. The `main` function only prints the input number without taking any input or performing any calculations. This submission does not compile or implement any of the required functionality."
+  },
+  {
+    "index": 112,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "There is a reasonable attempt at the algorithm, but the loop bounds are wrong — iterating one position past the array end leads to inconsistent output.",
+    "pred_rationale": "The student's submission has a major logic error in the recursive call. In the reference solution, the recursive call is `factorial(n - 1)`, but in the student's submission, it is `factorial(n + 1)`. This error causes the function to not correctly compute the factorial for positive integers.",
+    "raw_output": "Score: 3\nRationale: The student's submission has a major logic error in the recursive call. In the reference solution, the recursive call is `factorial(n - 1)`, but in the student's submission, it is `factorial(n + 1)`. This error causes the function to not correctly compute the factorial for positive integers. The rest of the code appears to be correct."
+  },
+  {
+    "index": 113,
+    "task_snippet": "Design a 'Rectangle' class in C++. The class should have private member variable",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The logic is inverted in a way that makes every answer wrong — for example, the condition that should detect even numbers actually selects odd ones instead.",
+    "pred_rationale": "The student submission is completely incorrect and does not compile. It does not define a Rectangle class as requested, but instead includes an `int main()` function and an unrelated `using namespace std;` statement.",
+    "raw_output": "Score: 1\nRationale: The student submission is completely incorrect and does not compile. It does not define a Rectangle class as requested, but instead includes an `int main()` function and an unrelated `using namespace std;` statement."
+  },
+  {
+    "index": 114,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The code is correct, complete, and idiomatic. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "pred_rationale": "The student's submission correctly implements both the prime and Armstrong number functions. The prime function checks if a number is prime by iterating from 2 to n-1 instead of 2 to sqrt(n) in the reference solution, but this change does not affect the correctness of the function. The armstrong function is identical to the reference solution.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements both the prime and Armstrong number functions. The prime function checks if a number is prime by iterating from 2 to n-1 instead of 2 to sqrt(n) in the reference solution, but this change does not affect the correctness of the function. The armstrong function is identical to the reference solution. The main function correctly calls both functions and outputs the results."
+  },
+  {
+    "index": 115,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This submission is essentially a skeleton: the function signatures are declared but the bodies are empty or contain placeholder logic that does nothing useful.",
+    "pred_rationale": "The student's submission is completely broken as it does not compile due to a missing semicolon after the variable declaration for the matrix 'a'. The reference solution includes the necessary semicolon and initializes the matrix with proper syntax.",
+    "raw_output": "Score: 1\nRationale: The student's submission is completely broken as it does not compile due to a missing semicolon after the variable declaration for the matrix 'a'. The reference solution includes the necessary semicolon and initializes the matrix with proper syntax."
+  },
+  {
+    "index": 116,
+    "task_snippet": "Design a class 'Complex' representing a complex number with private double varia",
+    "gold_score": 1,
+    "pred_score": 4,
+    "gold_rationale": "The program fails to compile. The student attempts to overload the stream insertion '<<' operator as a standard member method with an incorrect argument footprint, rather than declaring a non-member friend function. In C++, the left-hand operand of a member operator must be the object itself, meaning stream integration can only resolve via non-member paths.",
+    "pred_rationale": "The student's submission correctly implements the constructor, the getter functions for real and imaginary parts, and the overloaded '+' operator as a member function. However, the student incorrectly implemented the stream insertion operator '<<' as a member function instead of a non-member friend function. This causes a violation of the reference solution's design, as the reference solution separates the operator<< definition from the Complex class.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly implements the constructor, the getter functions for real and imaginary parts, and the overloaded '+' operator as a member function. However, the student incorrectly implemented the stream insertion operator '<<' as a member function instead of a non-member friend function. This causes a violation of the reference solution's design, as the reference solution separates the operator<< definition from the Complex class. The student's implementation is mostly correct, but it fails to meet the strict requirements of the rubric."
+  },
+  {
+    "index": 117,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The solution handles the main computation well but does not account for the case where the input array contains duplicate extremes, producing slightly wrong results there.",
+    "pred_rationale": "The student's submission compiles and initializes the 'IntArray' class with a private integer pointer 'data' and a private size_t 'size'. The constructor initializes elements to 0 as required. However, the destructor, copy constructor, and copy assignment operator are partially implemented with some issues.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and initializes the 'IntArray' class with a private integer pointer 'data' and a private size_t 'size'. The constructor initializes elements to 0 as required. However, the destructor, copy constructor, and copy assignment operator are partially implemented with some issues. The destructor and copy constructor correctly allocate and deallocate memory, but the copy assignment operator has some logical errors. The set and get functions have off-by-one conditions, which is a minor issue. The student's submission does not fully satisfy the Rule of Three"
+  },
+  {
+    "index": 118,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission hard-codes a single value or returns a constant, completely ignoring the input and the computational requirements of the task.",
+    "pred_rationale": "The student's submission does not contain the required string processing functions (countVowels, reverseString, and isPalindrome). Instead, it only includes an empty main function.",
+    "raw_output": "Score: 1\nRationale: The student's submission does not contain the required string processing functions (countVowels, reverseString, and isPalindrome). Instead, it only includes an empty main function."
+  },
+  {
+    "index": 119,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "The submission does not use dynamic allocation or implement any required functions for string processing.",
+    "pred_rationale": "The student's submission partially compiles and initializes a character array, but it does not dynamically allocate memory using pointers as required. The main function reads a word from the user into a fixed-size array, which is not sufficient for handling larger words. The required functions for counting uppercase letters, replacing vowels with '*', and checking for consecutive duplicate characters are missing entirely.",
+    "raw_output": "Score: 3\nRationale: The student's submission partially compiles and initializes a character array, but it does not dynamically allocate memory using pointers as required. The main function reads a word from the user into a fixed-size array, which is not sufficient for handling larger words. The required functions for counting uppercase letters, replacing vowels with '*', and checking for consecutive duplicate characters are missing entirely."
+  },
+  {
+    "index": 120,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "pred_rationale": "The student's submission correctly implements all required functions: `countUppercase`, `replaceVowels`, and `hasConsecutiveDuplicates`. The `main` function properly reads a word from the user, dynamically allocates memory for the word using a pointer, and calls the functions to process the word. The implementation follows best practices by using appropriate data types, handling string termination, and freeing allocated memory.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements all required functions: `countUppercase`, `replaceVowels`, and `hasConsecutiveDuplicates`. The `main` function properly reads a word from the user, dynamically allocates memory for the word using a pointer, and calls the functions to process the word. The implementation follows best practices by using appropriate data types, handling string termination, and freeing allocated memory."
+  },
+  {
+    "index": 121,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "Good overall structure and the functions are separated properly. The calculation is correct but the result is not returned — it is printed inside the function instead of being passed back to main.",
+    "pred_rationale": "The student's submission has a major logic error in the recursive call. Instead of multiplying the current number with the factorial of the previous number, they added the current number to the result of the recursive call. This results in incorrect output for all inputs except for n = 0 and n = 1.",
+    "raw_output": "Score: 2\nRationale: The student's submission has a major logic error in the recursive call. Instead of multiplying the current number with the factorial of the previous number, they added the current number to the result of the recursive call. This results in incorrect output for all inputs except for n = 0 and n = 1."
+  },
+  {
+    "index": 122,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Every requirement is satisfied. The recursive functions correctly handle both the base and recursive cases, the iterative counterparts are also present, and results are identical for both.",
+    "pred_rationale": "The student's submission correctly reads 10 integers into an array, sorts the array using bubble sort, and searches for a given number using linear search. The implementation follows the required approach and produces correct output for all cases. The only minor issue is the array bounds check in the for loop for sorting, which should be i<10 instead of i<9.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly reads 10 integers into an array, sorts the array using bubble sort, and searches for a given number using linear search. The implementation follows the required approach and produces correct output for all cases. The only minor issue is the array bounds check in the for loop for sorting, which should be i<10 instead of i<9. However, this does not affect the correctness of the implementation."
+  },
+  {
+    "index": 123,
+    "task_snippet": "Design a basic geometric shape hierarchy. Create a base class 'Shape' with a pur",
+    "gold_score": 1,
+    "pred_score": 5,
+    "gold_rationale": "This submission is essentially a skeleton: the function signatures are declared but the bodies are empty or contain placeholder logic that does nothing useful.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all major requirements have been implemented correctly and the implementation follows best practices. The 'totalArea' function correctly handles null pointers in the vector by skipping shapes that are null.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all major requirements have been implemented correctly and the implementation follows best practices. The 'totalArea' function correctly handles null pointers in the vector by skipping shapes that are null."
+  },
+  {
+    "index": 124,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Fundamental syntax errors throughout the file mean the program cannot run. The student has attempted to sketch an approach but left critical gaps unfilled.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions `reverseArray` or calculate the sum of the elements in the array. Instead, it only initializes an uninitialized pointer `arr` and assigns a value to its first element. This submission does not meet the basic requirements of the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions `reverseArray` or calculate the sum of the elements in the array. Instead, it only initializes an uninitialized pointer `arr` and assigns a value to its first element. This submission does not meet the basic requirements of the task."
+  },
+  {
+    "index": 125,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All required functions are correctly implemented and the main function ties them together cleanly. The program handles both typical and boundary inputs without issue.",
+    "pred_rationale": "The student's submission includes all required functions: isPalindrome, countVowels, and countConsonants. The isPalindrome function checks if a given string is a palindrome by reversing the string and comparing it to the original. The countVowels and countConsonants functions correctly count the number of vowels and consonants in a string, respectively.",
+    "raw_output": "Score: 5\nRationale: The student's submission includes all required functions: isPalindrome, countVowels, and countConsonants. The isPalindrome function checks if a given string is a palindrome by reversing the string and comparing it to the original. The countVowels and countConsonants functions correctly count the number of vowels and consonants in a string, respectively. The main function reads a string from the user, calls the three functions, and outputs the results. The implementation follows best practices."
+  },
+  {
+    "index": 126,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The code compiles and runs, but the sorting step modifies data that other functions depend on, causing cascading errors in the final output.",
+    "pred_rationale": "The student's submission correctly allocates an array using pointers, reads 5 integers, finds the maximum and minimum values, and deallocates the memory. The implementation follows the reference solution closely, with no major logical or syntax issues.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly allocates an array using pointers, reads 5 integers, finds the maximum and minimum values, and deallocates the memory. The implementation follows the reference solution closely, with no major logical or syntax issues."
+  },
+  {
+    "index": 127,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Correct and well-structured. The student correctly implements all required operations; the small deduction is for using a magic number in one place where a named constant or parameter would be clearer.",
+    "pred_rationale": "The student's submission compiles and implements the required functions `isPalindrome` and `countVowels` correctly. The `main` function also correctly uses these functions to check for palindrome and print the number of vowels. The implementation follows the reference solution closely.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements the required functions `isPalindrome` and `countVowels` correctly. The `main` function also correctly uses these functions to check for palindrome and print the number of vowels. The implementation follows the reference solution closely."
+  },
+  {
+    "index": 128,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The code has a critical flaw in the very first function: the return type is wrong and the body immediately returns without performing any calculation.",
+    "pred_rationale": "The student submission does not implement the required `factorial` function. Instead, it only contains an empty `main` function that returns 0. This submission does not compile or meaningfully implement recursion as required by the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not implement the required `factorial` function. Instead, it only contains an empty `main` function that returns 0. This submission does not compile or meaningfully implement recursion as required by the task. (Rubric level 1)"
+  },
+  {
+    "index": 129,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "pred_rationale": "The student submission does not define the Employee class as required. Instead, it contains only the main function with a simple print statement. The Employee class with its constructors, functions, and operator overloading is missing entirely.",
+    "raw_output": "Score: 1\nRationale: The student submission does not define the Employee class as required. Instead, it contains only the main function with a simple print statement. The Employee class with its constructors, functions, and operator overloading is missing entirely."
+  },
+  {
+    "index": 130,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 8 integers using poin",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty arrays, negative numbers, zero). The boundary conditions are not handled.",
+    "pred_rationale": "The student's submission is identical to the reference solution, with no missing functions or major issues. The implementation follows best practices and produces correct output for all cases.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, with no missing functions or major issues. The implementation follows best practices and produces correct output for all cases."
+  },
+  {
+    "index": 131,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "The main algorithm has the right idea but uses integer division where floating-point is needed, causing truncated and inaccurate results for the average.",
+    "pred_rationale": "The student's submission compiles and has the correct structure for reading matrices and performing matrix addition and multiplication. However, there is a major issue with the matrix addition implementation. The student is subtracting the elements of matrix B from the elements of matrix A instead of adding them.",
+    "raw_output": "Score: 3\nRationale: The student's submission compiles and has the correct structure for reading matrices and performing matrix addition and multiplication. However, there is a major issue with the matrix addition implementation. The student is subtracting the elements of matrix B from the elements of matrix A instead of adding them. This will result in incorrect addition results. The multiplication implementation seems correct."
+  },
+  {
+    "index": 132,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "This is a reasonable attempt with one clear gap: the comparison operator is applied to the wrong variable, so one function always returns the same default value.",
+    "pred_rationale": "The student's submission correctly implements both the factorial and Fibonacci functions using recursion. The factorial function uses a loop to calculate the factorial, but this is an acceptable alternative to recursion as long as the recursive approach is also provided. The Fibonacci function is implemented correctly using recursion with the proper base cases.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements both the factorial and Fibonacci functions using recursion. The factorial function uses a loop to calculate the factorial, but this is an acceptable alternative to recursion as long as the recursive approach is also provided. The Fibonacci function is implemented correctly using recursion with the proper base cases."
+  },
+  {
+    "index": 133,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The code is correct, complete, and idiomatic. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "pred_rationale": "The student's submission includes both factorial and Fibonacci recursive functions, which are functional and correctly implemented according to the given rubric. The factorial function checks the base cases correctly and multiplies the result with the recursive call. The Fibonacci function also checks the base cases correctly and adds the results of the recursive calls.",
+    "raw_output": "Score: 5\nRationale: The student's submission includes both factorial and Fibonacci recursive functions, which are functional and correctly implemented according to the given rubric. The factorial function checks the base cases correctly and multiplies the result with the recursive call. The Fibonacci function also checks the base cases correctly and adds the results of the recursive calls. The main function correctly reads the input and calls both functions."
+  },
+  {
+    "index": 134,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "This is a reasonable attempt with one clear gap: the comparison operator is applied to the wrong variable, so one function always returns the same default value.",
+    "pred_rationale": "The student's submission correctly opens the file, reads integers, and computes the average. However, it does not handle the case where the file is empty by checking for the end-of-file condition and throwing a domain error. Additionally, the student uses the incorrect exception message \"Corrupt entry\" instead of \"Error: Non-integer data encountered in file.\" for the invalid_argument exception.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly opens the file, reads integers, and computes the average. However, it does not handle the case where the file is empty by checking for the end-of-file condition and throwing a domain error. Additionally, the student uses the incorrect exception message \"Corrupt entry\" instead of \"Error: Non-integer data encountered in file.\" for the invalid_argument exception. The submission is mostly correct but has minor issues."
+  },
+  {
+    "index": 135,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 6 integers using poin",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Full marks. The student demonstrates a clear understanding of the task — the logic is sound, the functions are reusable, and the output is properly formatted.",
+    "pred_rationale": "The student's submission compiles and implements all required functions correctly. The isPerfectSquare function checks if a number is a perfect square using the square root and comparison. The countPerfectSquares function counts the number of perfect squares in an array.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions correctly. The isPerfectSquare function checks if a number is a perfect square using the square root and comparison. The countPerfectSquares function counts the number of perfect squares in an array. The smallestOdd function finds the smallest odd number in an array using pointers. The sumDivisibleByThree function calculates the sum of numbers divisible by 3 in an array. The main function dynamically allocates an array of 6 integers using pointers and calls all the required functions correctly. The"
+  },
+  {
+    "index": 136,
+    "task_snippet": "Design an abstract base class 'Shape' and a derived class 'Circle'. The 'Shape' ",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "A reasonable solution that covers the typical path well. It fails silently when the input file cannot be opened — rather than reporting an error, it continues with uninitialised data.",
+    "pred_rationale": "The student's submission correctly declares the base class 'Shape' as abstract using pure virtual syntax, includes a virtual destructor in the base class to prevent resource leaks, properly delegates member initialization to the base constructor via an initialization list, implements the overriding function 'getArea()' in the derived class 'Circle' using matching signatures ('const' and parameters), and ensures an architectural flow immune to object slicing by using inheritance and polymorphism.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly declares the base class 'Shape' as abstract using pure virtual syntax, includes a virtual destructor in the base class to prevent resource leaks, properly delegates member initialization to the base constructor via an initialization list, implements the overriding function 'getArea()' in the derived class 'Circle' using matching signatures ('const' and parameters), and ensures an architectural flow immune to object slicing by using inheritance and polymorphism."
+  },
+  {
+    "index": 137,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The student's submission is completely broken as it does not include the bubbleSort and linearSearch functions, which are required for the task.",
+    "raw_output": "Score: 1\nRationale: The student's submission is completely broken as it does not include the bubbleSort and linearSearch functions, which are required for the task."
+  },
+  {
+    "index": 138,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function uses a local variable name that shadows a parameter, which compilers warn about and could cause confusion in maintenance.",
+    "pred_rationale": "The student's submission correctly implements the 'IntArray' class with a private integer pointer 'data', a private size_t 'size', a constructor 'IntArray(size_t size)', a destructor, a copy constructor, and a copy assignment operator. The 'set(size_t index, int value)' and 'int get(size_t index) const' functions are also implemented with boundary validation. The student's implementation follows best practices by using 'new' to allocate memory and 'delete[]' to deallocate it, and includes a deep copying mechanism",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the 'IntArray' class with a private integer pointer 'data', a private size_t 'size', a constructor 'IntArray(size_t size)', a destructor, a copy constructor, and a copy assignment operator. The 'set(size_t index, int value)' and 'int get(size_t index) const' functions are also implemented with boundary validation. The student's implementation follows best practices by using 'new' to allocate memory and 'delete[]' to deallocate it, and includes a deep copying mechanism"
+  },
+  {
+    "index": 139,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Near-perfect implementation. A very minor issue is that the program outputs a trailing space after the last number, which does not affect correctness but deviates from the expected exact format.",
+    "pred_rationale": "The student's submission compiles and implements all three required functions: productEven(), countDivThree(), and smallestOdd(). The productEven() function correctly calculates the product of even numbers in the array, countDivThree() function correctly counts the numbers divisible by 3, and smallestOdd() function correctly finds the smallest odd number in the array. The implementation follows best practices and the output is properly formatted.",
+    "raw_output": "Score: 5\n\nRationale: The student's submission compiles and implements all three required functions: productEven(), countDivThree(), and smallestOdd(). The productEven() function correctly calculates the product of even numbers in the array, countDivThree() function correctly counts the numbers divisible by 3, and smallestOdd() function correctly finds the smallest odd number in the array. The implementation follows best practices and the output is properly formatted."
+  },
+  {
+    "index": 140,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The student's submission correctly dynamically allocates an array using a pointer, reads 5 integers, and finds the maximum and minimum values. However, there is a minor issue with the formatting of the output where the minimum value is missing a newline character at the end. This does not affect the correctness of the implementation.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly dynamically allocates an array using a pointer, reads 5 integers, and finds the maximum and minimum values. However, there is a minor issue with the formatting of the output where the minimum value is missing a newline character at the end. This does not affect the correctness of the implementation. (Reference rubric level 4)"
+  },
+  {
+    "index": 141,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "Three of the four required components are correct. The fourth has a subtle logic error that only manifests on boundary values, suggesting the student tested with typical cases only.",
+    "pred_rationale": "The student's submission correctly defines the ComplexNumber class with private data members real and imag, and implements the constructor and display function. However, it is missing the implementation of the operator overloading functions +, -, and ==. The submission compiles and works for the given main function, but it does not meet all the required functions as specified in the task.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly defines the ComplexNumber class with private data members real and imag, and implements the constructor and display function. However, it is missing the implementation of the operator overloading functions +, -, and ==. The submission compiles and works for the given main function, but it does not meet all the required functions as specified in the task."
+  },
+  {
+    "index": 142,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All five required operations produce correct results. The code is easy to follow and would not need changes to work correctly with a different input size.",
+    "pred_rationale": "The student's submission compiles and implements all three required functions: productEven(), countDivThree(), and smallestOdd(). The main function correctly reads 6 integers from the user and calls these functions to calculate the product of even numbers, count numbers divisible by 3, and find the smallest odd number in the array. The implementation follows best practices and the output is properly formatted.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all three required functions: productEven(), countDivThree(), and smallestOdd(). The main function correctly reads 6 integers from the user and calls these functions to calculate the product of even numbers, count numbers divisible by 3, and find the smallest odd number in the array. The implementation follows best practices and the output is properly formatted."
+  },
+  {
+    "index": 143,
+    "task_snippet": "Write a C++ program using a 2D array that reads a 3x3 matrix from the user and c",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The solution handles the main computation well but does not account for the case where the input array contains duplicate extremes, producing slightly wrong results there.",
+    "pred_rationale": "The student's submission partially implements the required functions. The inner loop for summing the elements in the matrix only iterates through the first two rows, missing the third row. Therefore, the sum calculated is incorrect for standard inputs.",
+    "raw_output": "Score: 3\nRationale: The student's submission partially implements the required functions. The inner loop for summing the elements in the matrix only iterates through the first two rows, missing the third row. Therefore, the sum calculated is incorrect for standard inputs. (Reference level 3)"
+  },
+  {
+    "index": 144,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The program produces correct output for all tested inputs. The only thing missing is that the destructor does not release the dynamically allocated buffer, which would cause a memory leak in any real application.",
+    "pred_rationale": "The student's submission correctly implements the recursive function named `factorial` using a loop instead of recursion as required. However, the logic is still correct, and the function computes the factorial accurately for all valid inputs. The implementation is clean and readable.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the recursive function named `factorial` using a loop instead of recursion as required. However, the logic is still correct, and the function computes the factorial accurately for all valid inputs. The implementation is clean and readable. Although the approach is not recursive, the submission still meets the requirements of the task."
+  },
+  {
+    "index": 145,
+    "task_snippet": "Design a class 'Complex' representing a complex number with private double varia",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Solid implementation of three out of five operations. The remaining two share a bug where a counter variable is initialised inside the loop body instead of before it.",
+    "pred_rationale": "The student's submission is identical to the reference solution, indicating that all major requirements have been implemented correctly. Both the constructor, getter functions, operator+, and operator<< are present and functional. The implementation follows best practices, including the use of const references and the correct friend declaration for operator<<.",
+    "raw_output": "Score: 5\nRationale: The student's submission is identical to the reference solution, indicating that all major requirements have been implemented correctly. Both the constructor, getter functions, operator+, and operator<< are present and functional. The implementation follows best practices, including the use of const references and the correct friend declaration for operator<<."
+  },
+  {
+    "index": 146,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "Some core calculations work, but the output section is broken: values are printed in the wrong order or with no formatting, making it hard to verify correctness.",
+    "pred_rationale": "The student's submission correctly performs the bitwise AND, OR, and XOR operations and checks whether the first number is even or odd using bitwise operators. However, there is a mistake in the XOR output. The student mistakenly printed the XOR result twice.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly performs the bitwise AND, OR, and XOR operations and checks whether the first number is even or odd using bitwise operators. However, there is a mistake in the XOR output. The student mistakenly printed the XOR result twice. The correct output should be:\n\n```cpp\ncout<<(a^b)<<endl;\n```\n\nInstead, the student printed:\n\n```cpp\ncout<<(a|b)<<endl;\n```\n\nThis error does not affect the correctness of"
+  },
+  {
+    "index": 147,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The student's submission compiles and implements the isPrime function correctly, but there is a mistake in the isArmstrong function. The student checks the condition i<n instead of i<=sqrt(n) in the isPrime function, which is a minor issue. In the isArmstrong function, the student calculates the cube of each digit and sums them up correctly, but the condition to check if the sum is equal to the original number should be at the end of the function, not after the while loop.",
+    "raw_output": "Score: 4\nRationale: The student's submission compiles and implements the isPrime function correctly, but there is a mistake in the isArmstrong function. The student checks the condition i<n instead of i<=sqrt(n) in the isPrime function, which is a minor issue. In the isArmstrong function, the student calculates the cube of each digit and sums them up correctly, but the condition to check if the sum is equal to the original number should be at the end of the function, not after the while loop. Therefore, the submission is mostly correct, but it"
+  },
+  {
+    "index": 148,
+    "task_snippet": "Write a function 'bool isBalanced(const std::string& expression)' in C++ that us",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The student's submission correctly processes the string using a stack and checks for balanced parentheses. However, there is an unnecessary use of a vector to store keys and values, which adds unnecessary complexity and potential inefficiency. This does not affect the correctness of the implementation but is a minor style flaw.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly processes the string using a stack and checks for balanced parentheses. However, there is an unnecessary use of a vector to store keys and values, which adds unnecessary complexity and potential inefficiency. This does not affect the correctness of the implementation but is a minor style flaw."
+  },
+  {
+    "index": 149,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student's submission has a minor issue in the fibonacci function where the recursive call to fibonacci(n-2) is incorrectly subtracted from fibonacci(n-1). It should be added instead. The rest of the code is similar to the reference solution and compiles correctly.",
+    "raw_output": "Score: 3\nRationale: The student's submission has a minor issue in the fibonacci function where the recursive call to fibonacci(n-2) is incorrectly subtracted from fibonacci(n-1). It should be added instead. The rest of the code is similar to the reference solution and compiles correctly. However, this error causes the fibonacci function to produce incorrect results for most inputs."
+  },
+  {
+    "index": 150,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "Pointer arithmetic is used but with an incorrect offset calculation, producing results that are shifted by one element from what is expected.",
+    "pred_rationale": "The student's submission correctly implements the Employee class with private data members name, salary, and yearsOfService. It includes constructors, a function to calculate yearly salary, a function to determine if the employee is eligible for promotion, and overloads the > operator to compare salaries between two employees. The implementation follows the given rubric and the reference solution closely.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the Employee class with private data members name, salary, and yearsOfService. It includes constructors, a function to calculate yearly salary, a function to determine if the employee is eligible for promotion, and overloads the > operator to compare salaries between two employees. The implementation follows the given rubric and the reference solution closely."
+  },
+  {
+    "index": 151,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The overall structure is there and the student clearly understood what was needed, but several functions produce wrong results due to off-by-one errors or incorrect operators.",
+    "pred_rationale": "The student's submission compiles but fails to meet the major requirements. The 'computeAverage' function always returns zero irrespective of the file contents, bypassing the essential functionality of summing the integers and computing the average. This submission does not handle the exceptions as required, and the file stream is not safely closed in all execution paths.",
+    "raw_output": "Score: 2\nRationale: The student's submission compiles but fails to meet the major requirements. The 'computeAverage' function always returns zero irrespective of the file contents, bypassing the essential functionality of summing the integers and computing the average. This submission does not handle the exceptions as required, and the file stream is not safely closed in all execution paths."
+  },
+  {
+    "index": 152,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The student's submission correctly implements the ComplexNumber class with private data members real and imag, constructors, a display function, and overloads the +, -, and == operators. The implementation follows the given rubric and closely resembles the reference solution.",
+    "raw_output": "Score: 5\nRationale: The student's submission correctly implements the ComplexNumber class with private data members real and imag, constructors, a display function, and overloads the +, -, and == operators. The implementation follows the given rubric and closely resembles the reference solution."
+  },
+  {
+    "index": 153,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "pred_rationale": "The student submission compiles, but it only initializes the string variable `s` in the `main` function and does not implement the `isPalindrome` function or the vowel and consonant counting functions as required. The submission does not meet the minimum requirements for a level 4 or 5 score.",
+    "raw_output": "Score: 3\nRationale: The student submission compiles, but it only initializes the string variable `s` in the `main` function and does not implement the `isPalindrome` function or the vowel and consonant counting functions as required. The submission does not meet the minimum requirements for a level 4 or 5 score."
+  },
+  {
+    "index": 154,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "Compilation succeeds, but the program gives wrong answers for most inputs. The accumulation variable is never reset between calls, causing values to carry over.",
+    "pred_rationale": "The student's submission only performs the bitwise left shift operation (n << 2), but it does not check if the number is even or odd, set the 2nd bit, clear the 1st bit, or toggle the 3rd bit as required.",
+    "raw_output": "Score: 3\nRationale: The student's submission only performs the bitwise left shift operation (n << 2), but it does not check if the number is even or odd, set the 2nd bit, clear the 1st bit, or toggle the 3rd bit as required."
+  },
+  {
+    "index": 155,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent submission. The algorithm is efficient, the code is clean and well-organised, and all the required functionality is present and working correctly.",
+    "pred_rationale": "The student's submission compiles and implements all required functions: isArmstrong(), countArmstrong(), secondLargest(), and averagePositive(). The program reads 7 integers into an array and correctly calculates and outputs the Armstrong count, second largest value, and average of positive numbers. The implementation follows best practices.",
+    "raw_output": "Score: 5\nRationale: The student's submission compiles and implements all required functions: isArmstrong(), countArmstrong(), secondLargest(), and averagePositive(). The program reads 7 integers into an array and correctly calculates and outputs the Armstrong count, second largest value, and average of positive numbers. The implementation follows best practices."
+  },
+  {
+    "index": 156,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student submission does not even attempt to implement the required prime and Armstrong number checking functions. It only includes the main function which takes an input and prints the number without any further processing. This submission does not meet the minimum requirements of the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required prime and Armstrong number checking functions. It only includes the main function which takes an input and prints the number without any further processing. This submission does not meet the minimum requirements of the task."
+  },
+  {
+    "index": 157,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required functionality.",
+    "pred_rationale": "The student submission does not even attempt to implement the required functions for calculating the product of even numbers, counting numbers divisible by 3, and finding the smallest odd number. Instead, it only contains the main function which only prints \"Numbers\" to the console. This submission does not meet the minimum requirements for the task.",
+    "raw_output": "Score: 1\nRationale: The student submission does not even attempt to implement the required functions for calculating the product of even numbers, counting numbers divisible by 3, and finding the smallest odd number. Instead, it only contains the main function which only prints \"Numbers\" to the console. This submission does not meet the minimum requirements for the task."
+  },
+  {
+    "index": 158,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty arrays, negative numbers, zero). The boundary conditions are not handled.",
+    "pred_rationale": "The student submission does not even attempt to read the data from the file or dynamically allocate an array for the Employee structures. It only prints a message and immediately exits the program. This submission fails to meet the minimum requirements of the task.",
+    "raw_output": "Score: 1\n\nRationale: The student submission does not even attempt to read the data from the file or dynamically allocate an array for the Employee structures. It only prints a message and immediately exits the program. This submission fails to meet the minimum requirements of the task."
+  },
+  {
+    "index": 159,
+    "task_snippet": "Write a function 'std::vector<std::pair<std::string, int>> sortWordsByFrequency(",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Near-perfect implementation. A very minor issue is that the program outputs a trailing space after the last number, which does not affect correctness but deviates from the expected exact format.",
+    "pred_rationale": "The student's submission correctly initializes the map, counts the frequency of each word, and stores the word-frequency pairs in a vector. However, the sorting algorithm used by the student is incorrect. Instead of using the `std::sort` function with the provided comparator, the student manually sorts the vector using a nested loop.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly initializes the map, counts the frequency of each word, and stores the word-frequency pairs in a vector. However, the sorting algorithm used by the student is incorrect. Instead of using the `std::sort` function with the provided comparator, the student manually sorts the vector using a nested loop. This approach has a time complexity of O(n^2), which is inefficient for large inputs. The correct approach is to use the `std::sort` function with the provided comparator as shown in the reference solution."
+  },
+  {
+    "index": 160,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "This submission demonstrates a complete failure to address the explicit technical scope of the assignment. Instead of creating a pointer entity to manage real dynamic heap memory allocations, the student defines a fixed stack array size block ('int data[1000]'). No copy functions or heap cleanups are engineered, yielding an invalid structural attempt that scores a 1.",
+    "pred_rationale": "The student's submission initializes a static array of integers instead of dynamically allocating memory. This violates the requirement to manage a dynamically allocated array of integers. The set and get functions are correctly implemented with boundary validation.",
+    "raw_output": "Score: 3\nRationale: The student's submission initializes a static array of integers instead of dynamically allocating memory. This violates the requirement to manage a dynamically allocated array of integers. The set and get functions are correctly implemented with boundary validation. However, the constructor does not initialize the array to zero, and the destructor and copy constructor/assignment operator are missing."
+  },
+  {
+    "index": 161,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The student's submission correctly defines the 'Employee' structure, reads data from the file into a dynamically allocated array, and implements the 'printEmployees', 'findHighestSalary', and 'calculateAverageSalary' functions. However, it misses the proper formatting of the output for the 'printEmployees' function and does not include error handling for file opening or memory allocation.",
+    "raw_output": "Score: 4\nRationale: The student's submission correctly defines the 'Employee' structure, reads data from the file into a dynamically allocated array, and implements the 'printEmployees', 'findHighestSalary', and 'calculateAverageSalary' functions. However, it misses the proper formatting of the output for the 'printEmployees' function and does not include error handling for file opening or memory allocation."
+  },
+  {
+    "index": 162,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Almost no useful code is present. The main function is missing or trivial, and the required operations are absent entirely.",
+    "pred_rationale": "The student submission does not define the ComplexNumber class as required. Instead, it contains an `int main()` function and an unrelated variable declaration and input statement.",
+    "raw_output": "Score: 1\nRationale: The student submission does not define the ComplexNumber class as required. Instead, it contains an `int main()` function and an unrelated variable declaration and input statement."
+  }
+]

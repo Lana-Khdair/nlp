@@ -1,0 +1,1469 @@
+[
+  {
+    "index": 0,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The core algorithm is solid and produces correct results in most cases. However, the program reads one fewer element than specified in the task, so one data point is always missing from the analysis.",
+    "pred_rationale": "The solution correctly processes the input file and calculates the required aggregates. However, the code is not very idiomatic: the streaming loop logic is mixed with the data processing logic, and the function signatures do not match what main expects.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the input file and calculates the required aggregates. However, the code is not very idiomatic: the streaming loop logic is mixed with the data processing logic, and the function signatures do not match what main expects."
+  },
+  {
+    "index": 1,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 2,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Good, working solution. The student chose a slightly inefficient approach for one of the functions (using two passes where one would suffice), but it produces correct results and is easy to read.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 3,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 4,
+    "task_snippet": "Write a C++ program that reads two integers representing the numerator and denom",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The student implemented one or two of the required operations correctly but omitted the rest, replacing them with stubs or incorrect approximations.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for simplifying the fraction. The resulting output is incorrect for all cases.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for simplifying the fraction. The resulting output is incorrect for all cases."
+  },
+  {
+    "index": 5,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 1,
+    "pred_score": 2,
+    "gold_rationale": "The submission hard-codes a single value or returns a constant, completely ignoring the input and the computational requirements of the task.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong operation (addition instead of bitwise OR). The error is not caught by the compiler because both operands are integers, but the result is clearly wrong for most inputs.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong operation (addition instead of bitwise OR). The error is not caught by the compiler because both operands are integers, but the result is clearly wrong for most inputs."
+  },
+  {
+    "index": 6,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Every requirement is satisfied. The recursive functions correctly handle both the base and recursive cases, the iterative counterparts are also present, and results are identical for both.",
+    "pred_rationale": "The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly."
+  },
+  {
+    "index": 7,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "pred_rationale": "The solution correctly processes the string but does not account for the case where the string is empty. The logic is sound, the edge-case handling is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the string but does not account for the case where the string is empty. The logic is sound, the edge-case handling is not."
+  },
+  {
+    "index": 8,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement arrays, functions, or any required calculations.",
+    "pred_rationale": "The program fails to compile due to a syntax error: an open brace '{' with no matching close brace '}' or a missing semicolon at the end of a function.",
+    "raw_output": "Score: 1\nRationale: The program fails to compile due to a syntax error: an open brace '{' with no matching close brace '}' or a missing semicolon at the end of a function."
+  },
+  {
+    "index": 9,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 10,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 2,
+    "pred_score": 5,
+    "gold_rationale": "The student implemented one or two of the required operations correctly but omitted the rest, replacing them with stubs or incorrect approximations.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 11,
+    "task_snippet": "Design a basic geometric shape hierarchy. Create a base class 'Shape' with a pur",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "Mostly functional code with an issue in the edge-case handling: the program produces correct results when given at least two elements, but crashes or gives garbage for a single-element input.",
+    "pred_rationale": "The student correctly identifies the functions to implement but then applies the wrong formula, producing incorrect results for the area.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the functions to implement but then applies the wrong formula, producing incorrect results for the area."
+  },
+  {
+    "index": 12,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Missing braces cause the compiler to misparse the entire body of the main loop, leaving large sections of code unreachable or syntactically invalid.",
+    "pred_rationale": "The code does not compile due to a syntax error: the student omitted the semicolon after the return statement closure.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the student omitted the semicolon after the return statement closure."
+  },
+  {
+    "index": 13,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 14,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "The logic is correct but the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment check in the copy assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment check in the copy assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 15,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required array or number theory functionality.",
+    "pred_rationale": "The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 16,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The solution correctly processes the data file and computes the average. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes the data file and computes the average. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 17,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The recursive base case is missing, so the function enters infinite recursion for certain inputs and causes a stack overflow.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for calculating the sum of cubes. The resulting code produces incorrect answers for all inputs.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for calculating the sum of cubes. The resulting code produces incorrect answers for all inputs."
+  },
+  {
+    "index": 18,
+    "task_snippet": "Write a C++ program that reads two integers representing the numerator and denom",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++."
+  },
+  {
+    "index": 19,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 20,
+    "task_snippet": "Write a C++ program using a 2D array that reads a 3x3 matrix from the user and c",
+    "gold_score": 1,
+    "pred_score": 5,
+    "gold_rationale": "The program does not compile due to a missing semicolon after the array declaration, which prevents any of the required logic from executing.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 21,
+    "task_snippet": "Design a generic class template 'Stack<T>' that implements a basic stack data st",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This submission represents a very poor attempt that skips the assignment's purpose. It completely avoids template logic and generic programming models, choosing to hardcode a basic fixed-size integer array structure. It omits exception logic, safety tracks, and const design patterns, yielding a 1.",
+    "pred_rationale": "The submission fails to compile due to a syntax error: the student omitted the trailing semicolon after the template class declaration closure. Additionally, the file lacks the required 'main' function entirely, which is a hard failure under any interpretation.",
+    "raw_output": "Score: 1\nRationale: The submission fails to compile due to a syntax error: the student omitted the trailing semicolon after the template class declaration closure. Additionally, the file lacks the required 'main' function entirely, which is a hard failure under any interpretation."
+  },
+  {
+    "index": 22,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 23,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Almost no useful code is present. The main function is missing or trivial, and the required operations are absent entirely.",
+    "pred_rationale": "The program fails to compile due to syntax errors and missing semicolons that prevent the compiler from parsing the entire file.",
+    "raw_output": "Score: 1\nRationale: The program fails to compile due to syntax errors and missing semicolons that prevent the compiler from parsing the entire file."
+  },
+  {
+    "index": 24,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 8 integers using poin",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent work. The file is read correctly, the data is processed accurately, and the error handling covers the case of a missing or unreadable file with a clear message.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 25,
+    "task_snippet": "Design a generic class template 'Stack<T>' that implements a basic stack data st",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 26,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission hard-codes a single value or returns a constant, completely ignoring the input and the computational requirements of the task.",
+    "pred_rationale": "The program does not compile due to an empty main function.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to an empty main function."
+  },
+  {
+    "index": 27,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent submission. The algorithm is efficient, the code is clean and well-organised, and all the required functionality is present and working correctly.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 28,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 4,
+    "pred_score": 2,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula, producing incorrect results for the hour and minute components. The logic for the second component is correct, but it doesn't matter because the hour and minute are wrong.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula, producing incorrect results for the hour and minute components. The logic for the second component is correct, but it doesn't matter because the hour and minute are wrong."
+  },
+  {
+    "index": 29,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 30,
+    "task_snippet": "Write a C++ program that reads an integer n and uses separate functions to check",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The program produces correct output for all tested inputs. The only thing missing is that the destructor does not release the dynamically allocated buffer, which would cause a memory leak in any real application.",
+    "pred_rationale": "The solution correctly processes all required elements and produces accurate results. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes all required elements and produces accurate results. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 31,
+    "task_snippet": "Design a class 'Color' that represents an RGB color profile. The class must cont",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission represents a poor attempt that sidesteps all core requirements. It completely skips data fields, omits the constructor configurations, and completely ignores operator overloading in favor of a basic standalone printing function, failing the entire scope of the prompt.",
+    "pred_rationale": "The submission does not compile due to a syntax error and a complete lack of requested functionality.",
+    "raw_output": "Score: 1\nRationale: The submission does not compile due to a syntax error and a complete lack of requested functionality."
+  },
+  {
+    "index": 32,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 6 integers using poin",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty arrays, negative numbers, zero). The boundary conditions are not handled.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2."
+  },
+  {
+    "index": 33,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2."
+  },
+  {
+    "index": 34,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The core algorithm is solid and produces correct results in most cases. However, the program reads one fewer element than specified in the task, so one data point is always missing from the analysis.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 35,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The code compiles and runs, but the sorting step modifies data that other functions depend on, causing cascading errors in the final output.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2."
+  },
+  {
+    "index": 36,
+    "task_snippet": "Design an abstract base class 'Shape' and a derived class 'Circle'. The 'Shape' ",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 37,
+    "task_snippet": "Design a class 'Color' that represents an RGB color profile. The class must cont",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "Good, working solution. The student chose a slightly inefficient approach for one of the functions (using two passes where one would suffice), but it produces correct results and is easy to read.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 38,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The code is correct, complete, and idiomatic. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 39,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "The logic is correct but the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong sorting algorithm (insertion sort) and produces incorrect results.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong sorting algorithm (insertion sort) and produces incorrect results."
+  },
+  {
+    "index": 40,
+    "task_snippet": "Write a function 'std::vector<std::pair<std::string, int>> sortWordsByFrequency(",
+    "gold_score": 1,
+    "pred_score": 2,
+    "gold_rationale": "The code does not compile — there are missing semicolons and undeclared variables that prevent execution entirely. None of the required functionality is present.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed."
+  },
+  {
+    "index": 41,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 42,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The code fails to compile due to basic syntax errors inside the struct definition (missing semicolons on member lines and a missing 'std::' qualifier on the string type). No additional requirements, such as file handling or dynamic memory allocation, are implemented, earning a 1.",
+    "pred_rationale": "The submission does not compile due to a syntax error: the student omitted the trailing semicolon after the structure definition closure. Additionally, the file handling logic is missing entirely, so the program would crash on any input.",
+    "raw_output": "Score: 1\nRationale: The submission does not compile due to a syntax error: the student omitted the trailing semicolon after the structure definition closure. Additionally, the file handling logic is missing entirely, so the program would crash on any input."
+  },
+  {
+    "index": 43,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly."
+  },
+  {
+    "index": 44,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent work. The file is read correctly, the data is processed accurately, and the error handling covers the case of a missing or unreadable file with a clear message.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 45,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "A reasonable solution that covers the typical path well. It fails silently when the input file cannot be opened — rather than reporting an error, it continues with uninitialised data.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 46,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 1,
+    "pred_score": 2,
+    "gold_rationale": "The student appears to have started writing the solution but stopped very early. The resulting file has unfinished control structures and produces no meaningful output.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula — multiplying instead of adding. The resulting code produces incorrect Fibonacci numbers.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula — multiplying instead of adding. The resulting code produces incorrect Fibonacci numbers."
+  },
+  {
+    "index": 47,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The submission does not compile due to a syntax error: the student omitted the trailing semicolon after the structure definition closure. Additionally, the file lacks the requested functions and allocation structures entirely, matching a 1.",
+    "raw_output": "Score: 1\nRationale: The submission does not compile due to a syntax error: the student omitted the trailing semicolon after the structure definition closure. Additionally, the file lacks the requested functions and allocation structures entirely, matching a 1."
+  },
+  {
+    "index": 48,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Correct logic throughout, clean structure, and proper use of functions. The student omitted the 'override' keyword on a virtual method that overrides a base-class function, which is not an error but is considered poor practice.",
+    "pred_rationale": "The solution correctly processes all required array elements and produces accurate results. The only imperfection is that the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes all required array elements and produces accurate results. The only imperfection is that the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined."
+  },
+  {
+    "index": 49,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Pointer arithmetic is used but with an incorrect offset calculation, producing results that are shifted by one element from what is expected.",
+    "pred_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty strings, negative numbers, zero). The boundary conditions are not handled.",
+    "raw_output": "Score: 2\nRationale: The function logic is partially correct for simple cases but breaks on edge inputs (empty strings, negative numbers, zero). The boundary conditions are not handled."
+  },
+  {
+    "index": 50,
+    "task_snippet": "Design a 'Rectangle' class in C++. The class should have private member variable",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "Most of the required functionality is implemented and works correctly for typical inputs. One section — the output formatting — does not match the expected layout.",
+    "pred_rationale": "The student correctly identifies the function signatures but then proceeds to write code that does not implement what is required. The body of the function is missing or incorrect for every case.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the function signatures but then proceeds to write code that does not implement what is required. The body of the function is missing or incorrect for every case."
+  },
+  {
+    "index": 51,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The overall structure is there and the student clearly understood what was needed, but several functions produce wrong results due to off-by-one errors or incorrect operators.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for calculating the average, producing incorrect results for all test cases.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for calculating the average, producing incorrect results for all test cases."
+  },
+  {
+    "index": 52,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The student has implemented every required component correctly. The code compiles without warnings, handles all edge cases, and produces accurate results across the full input range.",
+    "pred_rationale": "The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++."
+  },
+  {
+    "index": 53,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Almost no useful code is present. The main function is missing or trivial, and the required operations are absent entirely.",
+    "pred_rationale": "The submission does not compile due to a missing type declaration and an incorrect method name that does not match the function prototype.",
+    "raw_output": "Score: 1\nRationale: The submission does not compile due to a missing type declaration and an incorrect method name that does not match the function prototype."
+  },
+  {
+    "index": 54,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement dynamic arrays, triangular numbers, or any required functionality.",
+    "pred_rationale": "The program fails to compile due to a syntax error: the student omitted the semicolon after the function declaration closure. Additionally, the function signatures do not match what main expects, so even if the code were to compile, it would immediately crash on segmentation fault.",
+    "raw_output": "Score: 1\nRationale: The program fails to compile due to a syntax error: the student omitted the semicolon after the function declaration closure. Additionally, the function signatures do not match what main expects, so even if the code were to compile, it would immediately crash on segmentation fault."
+  },
+  {
+    "index": 55,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This program would crash on any input. Array indexing goes out of bounds and no checks are in place to catch the resulting undefined behaviour.",
+    "pred_rationale": "The program fails to compile due to a syntax error: an open brace '{' with no matching close brace '}' or a missing semicolon at the end of a function.",
+    "raw_output": "Score: 1\nRationale: The program fails to compile due to a syntax error: an open brace '{' with no matching close brace '}' or a missing semicolon at the end of a function."
+  },
+  {
+    "index": 56,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++."
+  },
+  {
+    "index": 57,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent submission. The algorithm is efficient, the code is clean and well-organised, and all the required functionality is present and working correctly.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 58,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "Good overall structure and the functions are separated properly. The calculation is correct but the result is not returned — it is printed inside the function instead of being passed back to main.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 59,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The code compiles and runs, but the sorting step modifies data that other functions depend on, causing cascading errors in the final output.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula, producing incorrect results for the average.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula, producing incorrect results for the average."
+  },
+  {
+    "index": 60,
+    "task_snippet": "Write a C++ program that reads 9 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required functionality, functions, or calculations.",
+    "pred_rationale": "The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 61,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Full marks. The student demonstrates a clear understanding of the task — the logic is sound, the functions are reusable, and the output is properly formatted.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 62,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This program would crash on any input. Array indexing goes out of bounds and no checks are in place to catch the resulting undefined behaviour.",
+    "pred_rationale": "The logic is inverted in a way that makes every answer wrong — for example, the condition that should detect a maximum value actually selects the minimum instead.",
+    "raw_output": "Score: 1\nRationale: The logic is inverted in a way that makes every answer wrong — for example, the condition that should detect a maximum value actually selects the minimum instead."
+  },
+  {
+    "index": 63,
+    "task_snippet": "Write a C++ program that reads an integer n and uses separate functions to check",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "pred_rationale": "The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly."
+  },
+  {
+    "index": 64,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The core algorithm is solid and produces correct results in most cases. However, the program reads one fewer element than specified in the task, so one data point is always missing from the analysis.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 65,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "Correct logic throughout, clean structure, and proper use of functions. The student omitted the 'override' keyword on a virtual method that overrides a base-class function, which is not an error but is considered poor practice.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 66,
+    "task_snippet": "Write a C++ program that reads 9 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Perfect implementation. The template class is correctly parameterised, the stack operations are all present, memory is managed without leaks, and the boundary conditions are handled.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 67,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "The main algorithm has the right idea but uses integer division where floating-point is needed, causing truncated and inaccurate results for the average.",
+    "pred_rationale": "The code does not compile due to a syntax error: the student forgot to include the return type and body for the main function.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the student forgot to include the return type and body for the main function."
+  },
+  {
+    "index": 68,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The student appears to have started writing the solution but did not complete it. The resulting file has an empty main function and no bitwise logic.",
+    "raw_output": "Score: 1\nRationale: The student appears to have started writing the solution but did not complete it. The resulting file has an empty main function and no bitwise logic."
+  },
+  {
+    "index": 69,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 70,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be multiplied, or multiplying values that should be summed.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula — summing values that should be multiplied, or multiplying values that should be summed."
+  },
+  {
+    "index": 71,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Complete and correct solution. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "pred_rationale": "The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly."
+  },
+  {
+    "index": 72,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The overall structure is there and the student clearly understood what was needed, but several functions produce wrong results due to off-by-one errors or incorrect operators.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong function logic for the rest of the program. The output is mostly incorrect.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong function logic for the rest of the program. The output is mostly incorrect."
+  },
+  {
+    "index": 73,
+    "task_snippet": "Write a function 'std::vector<std::pair<std::string, int>> sortWordsByFrequency(",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Mostly functional code with an issue in the edge-case handling: the program produces correct results when given at least two elements, but crashes or gives garbage for a single-element input.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 74,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The recursive base case is missing, so the function enters infinite recursion for certain inputs and causes a stack overflow.",
+    "pred_rationale": "The student correctly identifies the functions to implement but then proceeds to write incorrect or incomplete code for those functions.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the functions to implement but then proceeds to write incorrect or incomplete code for those functions."
+  },
+  {
+    "index": 75,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The main algorithm has the right idea but uses integer division where floating-point is needed, causing truncated and inaccurate results for the average.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed."
+  },
+  {
+    "index": 76,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 8 integers using poin",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement arrays, pointers, functions, or any required calculations.",
+    "pred_rationale": "The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 77,
+    "task_snippet": "Write a function 'bool isBalanced(const std::string& expression)' in C++ that us",
+    "gold_score": 1,
+    "pred_score": 2,
+    "gold_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "pred_rationale": "The student correctly identifies the openers but completely fails to match them with any closers. The resulting code produces wrong output for all cases.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the openers but completely fails to match them with any closers. The resulting code produces wrong output for all cases."
+  },
+  {
+    "index": 78,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The student has implemented every required component correctly. The code compiles without warnings, handles all edge cases, and produces accurate results across the full input range.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 79,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement dynamic memory allocation or any required functions.",
+    "pred_rationale": "The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 80,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Almost everything works as required. The only gap is that the getter methods are not marked const, so they cannot be called on a constant or reference-to-const instance — this would be a real problem in production code.",
+    "pred_rationale": "The solution correctly processes the array and returns the expected result. The only thing missing is that the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes the array and returns the expected result. The only thing missing is that the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined."
+  },
+  {
+    "index": 81,
+    "task_snippet": "Write a C++ program that reads 8 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 82,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 5 integers using poin",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Two of the four required functions work as expected. The other two contain logic errors that produce incorrect results without crashing.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed."
+  },
+  {
+    "index": 83,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All five required operations produce correct results. The code is easy to follow and would not need changes to work correctly with a different input size.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 84,
+    "task_snippet": "Write a function 'bool isBalanced(const std::string& expression)' in C++ that us",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "Three of the four required components are correct. The fourth has a subtle logic error that only manifests on boundary values, suggesting the student tested with typical cases only.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 85,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Every requirement is satisfied. The recursive functions correctly handle both the base and recursive cases, the iterative counterparts are also present, and results are identical for both.",
+    "pred_rationale": "The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++."
+  },
+  {
+    "index": 86,
+    "task_snippet": "Design a class 'Complex' representing a complex number with private double varia",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "Correct and well-structured. The student correctly implements all required operations; the small deduction is for using a magic number in one place where a named constant or parameter would be clearer.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 87,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "Mostly functional code with an issue in the edge-case handling: the program produces correct results when given at least two elements, but crashes or gives garbage for a single-element input.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 88,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This submission is essentially a skeleton: the function signatures are declared but the bodies are empty or contain placeholder logic that does nothing useful.",
+    "pred_rationale": "The code does not compile due to a syntax error: the array is declared but never initialized, and then elements are accessed as if they were global variables.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the array is declared but never initialized, and then elements are accessed as if they were global variables."
+  },
+  {
+    "index": 89,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "There is a reasonable attempt at the algorithm, but the loop bounds are wrong — iterating one position past the array end leads to inconsistent output.",
+    "pred_rationale": "The submission fails to compile due to a syntax error: the student omitted the trailing semicolon after the structure definition closure. Additionally, the file lacks the requested functions and allocation structures entirely, matching a 1.",
+    "raw_output": "Score: 1\nRationale: The submission fails to compile due to a syntax error: the student omitted the trailing semicolon after the structure definition closure. Additionally, the file lacks the requested functions and allocation structures entirely, matching a 1."
+  },
+  {
+    "index": 90,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Fundamental syntax errors throughout the file mean the program cannot run. The student has attempted to sketch an approach but left critical gaps unfilled.",
+    "pred_rationale": "The student appears to have started writing the solution but stopped very early. The resulting file has an empty main function and no other useful code.",
+    "raw_output": "Score: 1\nRationale: The student appears to have started writing the solution but stopped very early. The resulting file has an empty main function and no other useful code."
+  },
+  {
+    "index": 91,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function uses a local variable name that shadows a parameter, which compilers warn about and could cause confusion in maintenance.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 92,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 93,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The solution correctly processes the input file and calculates the required statistics. However, the code is not very idiomatic: the function signatures do not match what main expects, and the streaming logic is slightly inefficient.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the input file and calculates the required statistics. However, the code is not very idiomatic: the function signatures do not match what main expects, and the streaming logic is slightly inefficient."
+  },
+  {
+    "index": 94,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 6 integers using poin",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission contains syntax errors, uses an uninitialized pointer, and does not implement any required functionality.",
+    "pred_rationale": "The program fails to compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program fails to compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 95,
+    "task_snippet": "Write a C++ program that reads two integers representing the numerator and denom",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "raw_output": "Score: 1\nRationale: The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright."
+  },
+  {
+    "index": 96,
+    "task_snippet": "Write a C++ program using a 2D array that reads a 3x3 matrix from the user and c",
+    "gold_score": 4,
+    "pred_score": 5,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 97,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 98,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Some core calculations work, but the output section is broken: values are printed in the wrong order or with no formatting, making it hard to verify correctness.",
+    "pred_rationale": "The student correctly reads the matrix but then applies the wrong formula for the main diagonal, producing incorrect results for that metric.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the matrix but then applies the wrong formula for the main diagonal, producing incorrect results for that metric."
+  },
+  {
+    "index": 99,
+    "task_snippet": "Design a class 'Color' that represents an RGB color profile. The class must cont",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "The student has correctly implemented the primary calculation but mixed up two of the output labels, so the values printed are right but attributed to the wrong quantities.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 100,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "This submission meets all requirements. The class design is correct, the constructors and destructors are properly implemented, and the operator overloads work as expected.",
+    "pred_rationale": "The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++."
+  },
+  {
+    "index": 101,
+    "task_snippet": "Write a C++ program that reads an integer n and creates a dynamic array using po",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "There is a reasonable attempt at the algorithm, but the loop bounds are wrong — iterating one position past the array end leads to inconsistent output.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for triangular numbers, producing incorrect results for the entire array.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for triangular numbers, producing incorrect results for the entire array."
+  },
+  {
+    "index": 102,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Two of the four required functions work as expected. The other two contain logic errors that produce incorrect results without crashing.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong sorting algorithm (selection sort instead of bubble sort). The resulting array is sorted by key value but in the wrong order.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong sorting algorithm (selection sort instead of bubble sort). The resulting array is sorted by key value but in the wrong order."
+  },
+  {
+    "index": 103,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function uses a local variable name that shadows a parameter, which compilers warn about and could cause confusion in maintenance.",
+    "pred_rationale": "The solution correctly processes the array and handles all required operations. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes the array and handles all required operations. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 104,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All five required operations produce correct results. The code is easy to follow and would not need changes to work correctly with a different input size.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 105,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 4,
+    "pred_score": 3,
+    "gold_rationale": "Near-perfect implementation. A very minor issue is that the program outputs a trailing space after the last number, which does not affect correctness but deviates from the expected exact format.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 106,
+    "task_snippet": "Design an abstract base class 'Shape' and a derived class 'Circle'. The 'Shape' ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The program produces correct output for all tested inputs. The only thing missing is that the destructor does not release the dynamically allocated buffer, which would cause a memory leak in any real application.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 107,
+    "task_snippet": "Define a structure named 'Time' containing three integer fields: 'hour', 'minute",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "The logic is correct but the function signatures do not match what main expects — the parameter passing works by coincidence on most platforms but is technically undefined.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula, producing incorrect results for the hour and minute components. The logic for the second component is correct, but it doesn't matter because the hour and minute are wrong.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula, producing incorrect results for the hour and minute components. The logic for the second component is correct, but it doesn't matter because the hour and minute are wrong."
+  },
+  {
+    "index": 108,
+    "task_snippet": "Write a C++ program that reads 9 integers into an array, then uses separate func",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Two of the four required functions work as expected. The other two contain logic errors that produce incorrect results without crashing.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for the average, producing incorrect results for the sum and the answer.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for the average, producing incorrect results for the sum and the answer."
+  },
+  {
+    "index": 109,
+    "task_snippet": "Write a C++ program using vectors that reads N integers from the user and stores",
+    "gold_score": 1,
+    "pred_score": 2,
+    "gold_rationale": "The program only calculates the maximum value and completely ignores the minimum and average requirements. It also does not use vectors as required in the task. Edge cases with negative numbers are handled incorrectly because max is initialized to 0. The submission is incomplete and does not satisfy the assignment objectives.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for the average, producing results that are off by a factor of 2."
+  },
+  {
+    "index": 110,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, then uses separate fun",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Complete and correct solution. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 111,
+    "task_snippet": "Write a C++ program that reads an integer n and uses separate functions to check",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required functionality.",
+    "pred_rationale": "The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 112,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "There is a reasonable attempt at the algorithm, but the loop bounds are wrong — iterating one position past the array end leads to inconsistent output.",
+    "pred_rationale": "The student correctly identifies the recursive structure but then applies the wrong formula — multiplying instead of adding. The resulting code produces incorrect answers for all inputs.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the recursive structure but then applies the wrong formula — multiplying instead of adding. The resulting code produces incorrect answers for all inputs."
+  },
+  {
+    "index": 113,
+    "task_snippet": "Design a 'Rectangle' class in C++. The class should have private member variable",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The logic is inverted in a way that makes every answer wrong — for example, the condition that should detect even numbers actually selects odd ones instead.",
+    "pred_rationale": "The submission does not implement a class, does not use the constructor or any member functions, and simply returns 0 from main without any relation to the Rectangle problem.",
+    "raw_output": "Score: 1\nRationale: The submission does not implement a class, does not use the constructor or any member functions, and simply returns 0 from main without any relation to the Rectangle problem."
+  },
+  {
+    "index": 114,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The code is correct, complete, and idiomatic. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 115,
+    "task_snippet": "Write a C++ program that reads a 3x3 matrix, calculates the sum of the main diag",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This submission is essentially a skeleton: the function signatures are declared but the bodies are empty or contain placeholder logic that does nothing useful.",
+    "pred_rationale": "The code does not compile due to a syntax error: the semicolon after the opening brace of the main function causes the compiler to stop parsing the file entirely.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the semicolon after the opening brace of the main function causes the compiler to stop parsing the file entirely."
+  },
+  {
+    "index": 116,
+    "task_snippet": "Design a class 'Complex' representing a complex number with private double varia",
+    "gold_score": 1,
+    "pred_score": 3,
+    "gold_rationale": "The program fails to compile. The student attempts to overload the stream insertion '<<' operator as a standard member method with an incorrect argument footprint, rather than declaring a non-member friend function. In C++, the left-hand operand of a member operator must be the object itself, meaning stream integration can only resolve via non-member paths.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 117,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "The solution handles the main computation well but does not account for the case where the input array contains duplicate extremes, producing slightly wrong results there.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment check in the copy assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment check in the copy assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 118,
+    "task_snippet": "Write a C++ program that reads a string from the user and performs the following",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission hard-codes a single value or returns a constant, completely ignoring the input and the computational requirements of the task.",
+    "pred_rationale": "The program does not compile due to an empty main function and an incorrect function signature.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to an empty main function and an incorrect function signature."
+  },
+  {
+    "index": 119,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not use dynamic allocation or implement any required functions for string processing.",
+    "pred_rationale": "The program fails to compile due to a syntax error: the student omitted the semicolon after the function declaration's closing brace. Additionally, the function signatures do not match what main expects, so even if the code were to compile, it would immediately crash on runtime.",
+    "raw_output": "Score: 1\nRationale: The program fails to compile due to a syntax error: the student omitted the semicolon after the function declaration's closing brace. Additionally, the function signatures do not match what main expects, so even if the code were to compile, it would immediately crash on runtime."
+  },
+  {
+    "index": 120,
+    "task_snippet": "Write a C++ program that dynamically allocates a character array using pointers,",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 121,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 3,
+    "pred_score": 2,
+    "gold_rationale": "Good overall structure and the functions are separated properly. The calculation is correct but the result is not returned — it is printed inside the function instead of being passed back to main.",
+    "pred_rationale": "The student correctly identifies the recursive structure but then applies the wrong formula, producing incorrect results for all cases.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the recursive structure but then applies the wrong formula, producing incorrect results for all cases."
+  },
+  {
+    "index": 122,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 5,
+    "pred_score": 4,
+    "gold_rationale": "Every requirement is satisfied. The recursive functions correctly handle both the base and recursive cases, the iterative counterparts are also present, and results are identical for both.",
+    "pred_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function signatures do not match what main expects, so one parameter is always passed as a constant even though it should be modifiable.",
+    "raw_output": "Score: 4\nRationale: The implementation is largely correct and handles the expected input range well. There is one minor issue: the function signatures do not match what main expects, so one parameter is always passed as a constant even though it should be modifiable."
+  },
+  {
+    "index": 123,
+    "task_snippet": "Design a basic geometric shape hierarchy. Create a base class 'Shape' with a pur",
+    "gold_score": 1,
+    "pred_score": 4,
+    "gold_rationale": "This submission is essentially a skeleton: the function signatures are declared but the bodies are empty or contain placeholder logic that does nothing useful.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 124,
+    "task_snippet": "Write a C++ program that uses pointers and functions to reverse an array of 10 i",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Fundamental syntax errors throughout the file mean the program cannot run. The student has attempted to sketch an approach but left critical gaps unfilled.",
+    "pred_rationale": "The code does not compile due to a syntax error: the student forgot to include the semicolon after the function prototype declaration. Additionally, the function body is empty, so nothing useful is actually implemented.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the student forgot to include the semicolon after the function prototype declaration. Additionally, the function body is empty, so nothing useful is actually implemented."
+  },
+  {
+    "index": 125,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All required functions are correctly implemented and the main function ties them together cleanly. The program handles both typical and boundary inputs without issue.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 126,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 2,
+    "pred_score": 4,
+    "gold_rationale": "The code compiles and runs, but the sorting step modifies data that other functions depend on, causing cascading errors in the final output.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 127,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Correct and well-structured. The student correctly implements all required operations; the small deduction is for using a magic number in one place where a named constant or parameter would be clearer.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 128,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The code has a critical flaw in the very first function: the return type is wrong and the body immediately returns without performing any calculation.",
+    "pred_rationale": "The program does not compile due to an empty main function and an incorrect return type for the factorial function.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to an empty main function and an incorrect return type for the factorial function."
+  },
+  {
+    "index": 129,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "pred_rationale": "The code does not compile due to a syntax error and an empty main function.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error and an empty main function."
+  },
+  {
+    "index": 130,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 8 integers using poin",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty arrays, negative numbers, zero). The boundary conditions are not handled.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed."
+  },
+  {
+    "index": 131,
+    "task_snippet": "Write a C++ program that reads two 2x2 matrices and performs matrix addition and",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The main algorithm has the right idea but uses integer division where floating-point is needed, causing truncated and inaccurate results for the average.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for matrix multiplication, producing results that are completely off.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for matrix multiplication, producing results that are completely off."
+  },
+  {
+    "index": 132,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "This is a reasonable attempt with one clear gap: the comparison operator is applied to the wrong variable, so one function always returns the same default value.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 133,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 5,
+    "pred_score": 4,
+    "gold_rationale": "The code is correct, complete, and idiomatic. The use of const where appropriate, proper parameter passing, and correct return types all reflect solid understanding of C++.",
+    "pred_rationale": "The solution correctly processes the array and returns the expected result. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes the array and returns the expected result. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 134,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "This is a reasonable attempt with one clear gap: the comparison operator is applied to the wrong variable, so one function always returns the same default value.",
+    "pred_rationale": "The solution correctly processes the file and computes the average. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes the file and computes the average. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 135,
+    "task_snippet": "Write a C++ program that dynamically allocates an array of 6 integers using poin",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Full marks. The student demonstrates a clear understanding of the task — the logic is sound, the functions are reusable, and the output is properly formatted.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 136,
+    "task_snippet": "Design an abstract base class 'Shape' and a derived class 'Circle'. The 'Shape' ",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "A reasonable solution that covers the typical path well. It fails silently when the input file cannot be opened — rather than reporting an error, it continues with uninitialised data.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 137,
+    "task_snippet": "Write a C++ program that reads 10 integers into an array, sorts the array in asc",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Several required functions are not implemented. What is present contains type mismatches and scope errors that would stop compilation before any logic runs.",
+    "pred_rationale": "The code does not compile due to a syntax error: the student omitted the semicolon after the opening brace of the main function. Additionally, the function signatures do not match what main expects, so the program would crash even if it compiled.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the student omitted the semicolon after the opening brace of the main function. Additionally, the function signatures do not match what main expects, so the program would crash even if it compiled."
+  },
+  {
+    "index": 138,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The implementation is largely correct and handles the expected input range well. There is one minor issue: the function uses a local variable name that shadows a parameter, which compilers warn about and could cause confusion in maintenance.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment check in the copy assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment check in the copy assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 139,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Near-perfect implementation. A very minor issue is that the program outputs a trailing space after the last number, which does not affect correctness but deviates from the expected exact format.",
+    "pred_rationale": "The solution correctly processes all required elements and produces accurate results. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes all required elements and produces accurate results. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 140,
+    "task_snippet": "Write a C++ program that dynamically allocates an array using pointers, reads 5 ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 141,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 3,
+    "pred_score": 3,
+    "gold_rationale": "Three of the four required components are correct. The fourth has a subtle logic error that only manifests on boundary values, suggesting the student tested with typical cases only.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 142,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "All five required operations produce correct results. The code is easy to follow and would not need changes to work correctly with a different input size.",
+    "pred_rationale": "The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. Dynamic memory is allocated and deallocated properly, the pointer arithmetic is sound, and all computed values are accurate."
+  },
+  {
+    "index": 143,
+    "task_snippet": "Write a C++ program using a 2D array that reads a 3x3 matrix from the user and c",
+    "gold_score": 3,
+    "pred_score": 4,
+    "gold_rationale": "The solution handles the main computation well but does not account for the case where the input array contains duplicate extremes, producing slightly wrong results there.",
+    "pred_rationale": "The solution correctly processes all required elements and produces accurate results. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution correctly processes all required elements and produces accurate results. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 144,
+    "task_snippet": "Write a C++ recursive function named factorial that takes a positive integer n a",
+    "gold_score": 4,
+    "pred_score": 2,
+    "gold_rationale": "The program produces correct output for all tested inputs. The only thing missing is that the destructor does not release the dynamically allocated buffer, which would cause a memory leak in any real application.",
+    "pred_rationale": "The student correctly identifies the recursive structure but then applies the wrong formula, producing incorrect results for all cases.",
+    "raw_output": "Score: 2\nRationale: The student correctly identifies the recursive structure but then applies the wrong formula, producing incorrect results for all cases."
+  },
+  {
+    "index": 145,
+    "task_snippet": "Design a class 'Complex' representing a complex number with private double varia",
+    "gold_score": 3,
+    "pred_score": 5,
+    "gold_rationale": "Solid implementation of three out of five operations. The remaining two share a bug where a counter variable is initialised inside the loop body instead of before it.",
+    "pred_rationale": "The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct operator overloading all reflect solid understanding of C++.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. The use of const where appropriate, proper parameter passing, and correct operator overloading all reflect solid understanding of C++."
+  },
+  {
+    "index": 146,
+    "task_snippet": "Write a C++ program that reads two integers and performs bitwise AND, OR, XOR op",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "Some core calculations work, but the output section is broken: values are printed in the wrong order or with no formatting, making it hard to verify correctness.",
+    "pred_rationale": "The solution correctly processes the main computation but does not handle the case where the input array is empty or contains duplicate extremes.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the main computation but does not handle the case where the input array is empty or contains duplicate extremes."
+  },
+  {
+    "index": 147,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "This is a high-quality submission. The only imperfection is that one member function passes its argument by value when a const reference would be more efficient and idiomatic.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 148,
+    "task_snippet": "Write a function 'bool isBalanced(const std::string& expression)' in C++ that us",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "The core algorithm is well implemented and the code is readable. One operator is missing the const qualifier on its right-hand parameter, which would prevent it from working with temporary values.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 149,
+    "task_snippet": "Write a C++ program that reads an integer n and uses recursion to calculate the ",
+    "gold_score": 2,
+    "pred_score": 3,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not.",
+    "raw_output": "Score: 3\nRationale: The solution correctly processes the array but forgets to free dynamically allocated memory before returning. The logic is correct, the resource management is not."
+  },
+  {
+    "index": 150,
+    "task_snippet": "Write a C++ program that defines a class called Employee with private data membe",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Pointer arithmetic is used but with an incorrect offset calculation, producing results that are shifted by one element from what is expected.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula, producing incorrect results for the yearly salary.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula, producing incorrect results for the yearly salary."
+  },
+  {
+    "index": 151,
+    "task_snippet": "Design a class 'DataProcessor' that reads space-separated integer values from a ",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "The overall structure is there and the student clearly understood what was needed, but several functions produce wrong results due to off-by-one errors or incorrect operators.",
+    "pred_rationale": "The student correctly reads the data but then applies the wrong formula — summing values that should be averaged, and averaging values that should be summed.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the data but then applies the wrong formula — summing values that should be averaged, and averaging values that should be summed."
+  },
+  {
+    "index": 152,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 153,
+    "task_snippet": "Write a C++ program that reads a string and checks whether it is a palindrome. T",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The program fails at the structural level — incorrect types, missing includes, and broken control flow combine to produce code that a compiler would reject outright.",
+    "pred_rationale": "The code does not compile due to a syntax error: the student forgot to include the return type and body of the isPalindrome function.",
+    "raw_output": "Score: 1\nRationale: The code does not compile due to a syntax error: the student forgot to include the return type and body of the isPalindrome function."
+  },
+  {
+    "index": 154,
+    "task_snippet": "Write a C++ program that reads an integer n and performs the following operation",
+    "gold_score": 2,
+    "pred_score": 2,
+    "gold_rationale": "Compilation succeeds, but the program gives wrong answers for most inputs. The accumulation variable is never reset between calls, causing values to carry over.",
+    "pred_rationale": "The student correctly reads the input but then applies the wrong formula for checking even/odd. The output is always incorrect.",
+    "raw_output": "Score: 2\nRationale: The student correctly reads the input but then applies the wrong formula for checking even/odd. The output is always incorrect."
+  },
+  {
+    "index": 155,
+    "task_snippet": "Write a C++ program that reads 7 integers into an array, then uses separate func",
+    "gold_score": 5,
+    "pred_score": 5,
+    "gold_rationale": "Excellent submission. The algorithm is efficient, the code is clean and well-organised, and all the required functionality is present and working correctly.",
+    "pred_rationale": "The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly.",
+    "raw_output": "Score: 5\nRationale: The solution is thorough and correct. All required operations are implemented, the functions are properly separated, and the output format matches expectations exactly."
+  },
+  {
+    "index": 156,
+    "task_snippet": "Write a C++ program that reads an integer and checks whether it is a prime numbe",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "The student correctly reads the input but then applies the wrong formula — summing values that should be compared, or comparing values that should be summed.",
+    "pred_rationale": "The student appears to have started writing the solution but stopped very early. The resulting file has an empty main function and no other implementation.",
+    "raw_output": "Score: 1\nRationale: The student appears to have started writing the solution but stopped very early. The resulting file has an empty main function and no other implementation."
+  },
+  {
+    "index": 157,
+    "task_snippet": "Write a C++ program that reads 6 integers into an array, then uses separate func",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "The submission does not implement any required functionality.",
+    "pred_rationale": "The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure.",
+    "raw_output": "Score: 1\nRationale: The program does not compile due to a syntax error: the student omitted the semicolon after the function declaration closure."
+  },
+  {
+    "index": 158,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 2,
+    "pred_score": 1,
+    "gold_rationale": "The function logic is partially correct for simple cases but breaks on edge inputs (empty arrays, negative numbers, zero). The boundary conditions are not handled.",
+    "pred_rationale": "The submission does not implement any required functionality.",
+    "raw_output": "Score: 1\nRationale: The submission does not implement any required functionality."
+  },
+  {
+    "index": 159,
+    "task_snippet": "Write a function 'std::vector<std::pair<std::string, int>> sortWordsByFrequency(",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Near-perfect implementation. A very minor issue is that the program outputs a trailing space after the last number, which does not affect correctness but deviates from the expected exact format.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 160,
+    "task_snippet": "Design a class 'IntArray' that manages a dynamically allocated array of integers",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "This submission demonstrates a complete failure to address the explicit technical scope of the assignment. Instead of creating a pointer entity to manage real dynamic heap memory allocations, the student defines a fixed stack array size block ('int data[1000]'). No copy functions or heap cleanups are engineered, yielding an invalid structural attempt that scores a 1.",
+    "pred_rationale": "The student appears to have started writing the solution but stopped very early. The resulting file has no useful code.",
+    "raw_output": "Score: 1\nRationale: The student appears to have started writing the solution but stopped very early. The resulting file has no useful code."
+  },
+  {
+    "index": 161,
+    "task_snippet": "Design a C++ program that reads employee records from a text file and processes ",
+    "gold_score": 4,
+    "pred_score": 4,
+    "gold_rationale": "Very close to a complete solution. The file handling logic is solid, the calculations are correct, and the output matches the expected format — the one gap is that the file is never explicitly closed.",
+    "pred_rationale": "The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself.",
+    "raw_output": "Score: 4\nRationale: The solution satisfies all the main requirements. The only issue is a missing self-assignment guard in the copy-assignment operator — the code would misbehave if an object were assigned to itself."
+  },
+  {
+    "index": 162,
+    "task_snippet": "Write a C++ program that defines a class called ComplexNumber with private data ",
+    "gold_score": 1,
+    "pred_score": 1,
+    "gold_rationale": "Almost no useful code is present. The main function is missing or trivial, and the required operations are absent entirely.",
+    "pred_rationale": "The student appears to have started writing the solution but stopped very early. The resulting file has an empty main function and no implementation for the class ComplexNumber.",
+    "raw_output": "Score: 1\nRationale: The student appears to have started writing the solution but stopped very early. The resulting file has an empty main function and no implementation for the class ComplexNumber."
+  }
+]
