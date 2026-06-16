@@ -51,15 +51,30 @@ Output exactly these two lines and nothing else:
 Score: <1-5>
 Rationale: <two to three sentences: name the specific functions or operations that work, identify what is missing or incorrect, and reference the rubric level>"""
 
+# ── Default rubric used when none is found in dataset ────────────────────────
+DEFAULT_RUBRIC = {
+    1: "Completely broken — does not compile or implements almost nothing required.",
+    2: "Major logical or syntax errors preventing core requirements from working.",
+    3: "Partially correct — some parts work but key parts are missing or broken.",
+    4: "Mostly correct with only a minor issue (edge case, slight inefficiency, small flaw).",
+    5: "Fully correct — all functions work for all cases, output formatted, best practices followed.",
+}
+
 
 def format_rubric(rubric: dict) -> str:
     return "\n".join(f"  {k}: {v}" for k, v in sorted(rubric.items(), key=lambda x: str(x[0])))
 
 
-def build_user_message(task: str, reference: str, submission: str, rubric: dict) -> str:
+def build_user_message(task: str, reference: Optional[str], submission: str, rubric: dict) -> str:
+    # Reference is optional — custom tasks may not have one
+    ref_section = (
+        f"### Reference Solution\n```cpp\n{reference}\n```\n\n"
+        if reference
+        else "### Reference Solution\nNo reference solution provided — evaluate based on the task description and rubric alone.\n\n"
+    )
     return (
         f"### Task\n{task}\n\n"
-        f"### Reference Solution\n```cpp\n{reference}\n```\n\n"
+        f"{ref_section}"
         f"### Student Submission\n```cpp\n{submission}\n```\n\n"
         f"### Rubric\n{format_rubric(rubric)}"
     )
@@ -96,7 +111,6 @@ def _load_model_internal(model_type: str = "finetuned"):
     """
     global _model, _tokenizer, _model_type
 
-    # ── FIX 1: guard clause — skip if already loaded ──────────────────────────
     if _model is not None and _model_type == model_type:
         return
 
@@ -131,7 +145,6 @@ def _load_model_internal(model_type: str = "finetuned"):
 # ── Auto-load model on startup ────────────────────────────────────────────────
 @app.on_event("startup")
 async def startup_event():
-    # ── FIX 2: default to "finetuned" — that's the whole point of the pipeline
     try:
         _load_model_internal("finetuned")
     except Exception as e:
@@ -203,7 +216,6 @@ def model_status():
 def load_model(model_type: str = "finetuned"):
     """Manually reload the model (e.g. to switch base ↔ finetuned)."""
     global _model_type
-    # Force reload even if the same type (e.g. after adapter update)
     _model_type = None
     try:
         _load_model_internal(model_type)
@@ -216,7 +228,6 @@ def load_model(model_type: str = "finetuned"):
 def evaluate(req: EvaluateRequest):
     """Evaluate a student submission using the loaded model."""
 
-    # Reject immediately if model not loaded
     if _model is None or _tokenizer is None:
         raise HTTPException(
             status_code=503,
@@ -226,14 +237,10 @@ def evaluate(req: EvaluateRequest):
             ),
         )
 
-    # ── FIX 1 (continued): guard in _load_model_internal means this is now
-    #    a cheap no-op when the right model is already loaded, and correctly
-    #    triggers a real reload only when the caller explicitly requests a
-    #    different model type via the `model` field.
     requested_model = req.model or "finetuned"
     _load_model_internal(requested_model)
 
-    # Fetch reference + rubric from dataset if not provided
+    # Resolve reference + rubric: prefer request fields, then fall back to dataset
     reference = req.reference
     rubric    = req.rubric
 
@@ -241,14 +248,14 @@ def evaluate(req: EvaluateRequest):
         data = load_dataset()
         for entry in data:
             if entry["task"] == req.task:
-                reference = reference or entry["reference"]
-                rubric    = rubric    or entry["rubric"]
+                reference = reference or entry.get("reference")
+                rubric    = rubric    or entry.get("rubric")
                 break
 
-    if reference is None:
-        raise HTTPException(status_code=400, detail="Reference solution not found for this task.")
+    # reference is now genuinely optional — no 400 if still None
+    # rubric falls back to a generic one so custom tasks always get scored
     if rubric is None:
-        raise HTTPException(status_code=400, detail="Rubric not found for this task.")
+        rubric = DEFAULT_RUBRIC
 
     # ── Run inference ─────────────────────────────────────────────────────────
     import torch

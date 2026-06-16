@@ -18,10 +18,8 @@ st.set_page_config(
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
-    /* Dark background */
     .stApp { background-color: #0e1117; }
 
-    /* Metric cards */
     .metric-card {
         background: #1a1d27;
         border-radius: 12px;
@@ -48,7 +46,6 @@ st.markdown("""
         margin-top: 4px;
     }
 
-    /* Score bar */
     .score-bar-wrap {
         background: #1a1d27;
         border-radius: 12px;
@@ -67,7 +64,6 @@ st.markdown("""
     .bar-fill { height: 100%; border-radius: 4px; }
     .bar-count { color: #8b92a5; font-size: 12px; width: 28px; text-align: right; flex-shrink: 0; }
 
-    /* Result card */
     .result-card {
         padding: 20px 24px;
         border-radius: 12px;
@@ -93,7 +89,6 @@ st.markdown("""
         border-top: 1px solid #2a2d3a;
     }
 
-    /* Rubric table */
     .rubric-table {
         width: 100%;
         border-collapse: collapse;
@@ -111,23 +106,8 @@ st.markdown("""
         text-align: center;
     }
 
-    /* Sidebar */
-    [data-testid="stSidebar"] { background: #13151f; border-right: 1px solid #2a2d3a; }
-
-    /* Divider */
-    hr { border-color: #2a2d3a !important; }
-
-    /* Code area */
-    .stTextArea textarea {
-        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-        font-size: 13px;
-        background: #1a1d27;
-        color: #e2e8f0;
-        border: 1px solid #2a2d3a;
-        border-radius: 8px;
-    }
-
-    /* Button */
+    /* Mode toggle pills */
+    div[data-testid="stHorizontalBlock"] > div:has(.mode-btn) { gap: 8px !important; }
     .stButton > button {
         background: linear-gradient(135deg, #4f6ef7, #7c3aed);
         color: white;
@@ -140,7 +120,35 @@ st.markdown("""
     }
     .stButton > button:hover { opacity: 0.88; }
 
-    /* Hide default streamlit header */
+    /* Active mode pill */
+    .pill-active > button {
+        background: linear-gradient(135deg, #4f6ef7, #7c3aed) !important;
+        color: white !important;
+        border: none !important;
+    }
+    .pill-inactive > button {
+        background: #1a1d27 !important;
+        color: #8b92a5 !important;
+        border: 1px solid #2a2d3a !important;
+    }
+    .pill-inactive > button:hover {
+        background: #252836 !important;
+        color: #e2e8f0 !important;
+        opacity: 1 !important;
+    }
+
+    /* Custom task input */
+    .stTextArea textarea {
+        font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+        font-size: 13px;
+        background: #1a1d27;
+        color: #e2e8f0;
+        border: 1px solid #2a2d3a;
+        border-radius: 8px;
+    }
+
+    [data-testid="stSidebar"] { background: #13151f; border-right: 1px solid #2a2d3a; }
+    hr { border-color: #2a2d3a !important; }
     #MainMenu, footer { visibility: hidden; }
 </style>
 """, unsafe_allow_html=True)
@@ -156,13 +164,6 @@ SCORE_LABELS = {
     5: "Fully Correct",
 }
 SCORE_COLORS = {
-    1: "#e24b4a",
-    2: "#ef9f27",
-    3: "#378add",
-    4: "#1d9e75",
-    5: "#22c55e",
-}
-SCORE_BAR_COLORS = {
     1: "#e24b4a",
     2: "#ef9f27",
     3: "#378add",
@@ -187,7 +188,6 @@ def load_dataset():
 
 data = load_dataset()
 
-# Build unique task list (preserving first occurrence order)
 seen = set()
 unique_tasks = []
 for item in data:
@@ -195,45 +195,46 @@ for item in data:
         seen.add(item["task"])
         unique_tasks.append(item)
 
-# Per-task stats
 task_score_map = defaultdict(list)
 for item in data:
     task_score_map[item["task"]].append(item["score"])
 
-# ─────────────────────────────────────────────
-# OVERALL DATASET METRICS
-# ─────────────────────────────────────────────
 all_scores = [item["score"] for item in data]
-
 total_submissions = len(all_scores)
-avg_score = sum(all_scores) / len(all_scores) if all_scores else 0
-accuracy_pct = (sum(1 for s in all_scores if s >= 4) / total_submissions * 100) if total_submissions else 0
-score_dist = {i: all_scores.count(i) for i in range(1, 6)}
-max_dist = max(score_dist.values()) if score_dist else 1
-  
+
+# ─────────────────────────────────────────────
+# SESSION STATE — mode toggle
+# ─────────────────────────────────────────────
+if "mode" not in st.session_state:
+    st.session_state.mode = "preset"   # "preset" | "custom"
+
 # ─────────────────────────────────────────────
 # SIDEBAR
 # ─────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🎯 Task Selector")
+    if st.session_state.mode == "preset":
+        st.markdown("## 🎯 Task Selector")
+        task_titles = [t["task"] for t in unique_tasks]
+        selected_index = st.selectbox(
+            "Choose a task",
+            range(len(task_titles)),
+            format_func=lambda i: task_titles[i],
+            index=0,
+            label_visibility="collapsed",
+        )
+        selected_task = unique_tasks[selected_index]
+        selected_title = selected_task["task"]
 
-    task_titles = [t["task"] for t in unique_tasks]
-
-    selected_index = st.selectbox(
-        "Choose a task",
-        range(len(task_titles)),
-        format_func=lambda i: task_titles[i],
-        index=0,
-        label_visibility="collapsed",
-    )
-    selected_task = unique_tasks[selected_index]
-    selected_title = selected_task["task"]
-
-
-    # Per-task mini stats in sidebar
-    task_scores = task_score_map[selected_title]
-    task_avg = sum(task_scores) / len(task_scores) if task_scores else 0
-    task_accuracy = sum(1 for s in task_scores if s >= 4) / len(task_scores) * 100 if task_scores else 0
+        task_scores = task_score_map[selected_title]
+        task_avg = sum(task_scores) / len(task_scores) if task_scores else 0
+    else:
+        st.markdown("## ✏️ Custom Task")
+        st.markdown(
+            '<p style="color:#8b92a5;font-size:13px;line-height:1.6;">'
+            "Write any task description in the main panel and paste your code — "
+            "the model will evaluate it directly.</p>",
+            unsafe_allow_html=True,
+        )
 
     st.markdown("---")
     st.markdown("**Score Legend**")
@@ -244,12 +245,10 @@ with st.sidebar:
             f'<span style="color:#ccc; font-size:13px">{score} — {label}</span>',
             unsafe_allow_html=True,
         )
-model_choice = st.sidebar.selectbox(
-    "🧠 Model",
-    ["baseline", "finetuned"]
-)
+
+model_choice = "finetuned"
 # ─────────────────────────────────────────────
-# MAIN — HEADER
+# HEADER
 # ─────────────────────────────────────────────
 st.markdown("# 💻 C++ Code Evaluator")
 st.markdown(
@@ -258,106 +257,154 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+# ── MODE TOGGLE ──────────────────────────────
+toggle_col1, toggle_col2, spacer = st.columns([1.4, 1.6, 5])
+
+with toggle_col1:
+    active_cls   = "pill-active"   if st.session_state.mode == "preset" else "pill-inactive"
+    st.markdown(f'<div class="{active_cls}">', unsafe_allow_html=True)
+    if st.button("🎯 Preset Task"):
+        st.session_state.mode = "preset"
+        st.rerun()
+    st.markdown("</div>", unsafe_allow_html=True)
+
+with toggle_col2:
+    active_cls   = "pill-active"   if st.session_state.mode == "custom" else "pill-inactive"
+    st.markdown(f'<div class="{active_cls}">', unsafe_allow_html=True)
+    if st.button("✏️ Custom Task"):
+        st.session_state.mode = "custom"
+        st.rerun()
+    st.markdown("</div>", unsafe_allow_html=True)
+
 st.markdown("---")
 
 # ─────────────────────────────────────────────
-# EVALUATION METRICS DASHBOARD (top)
+# METRICS DASHBOARD
 # ─────────────────────────────────────────────
 st.markdown("### 📊 Evaluation Metrics")
 
 col1, col2, col3, col4 = st.columns(4)
-
 with col1:
     st.markdown(
-        f"""<div class="metric-card">
-            <div class="metric-label">Exact Accuracy</div>
-            <div class="metric-value" style="color:#4f6ef7">77.91%</div>
-        </div>""",
+        '<div class="metric-card"><div class="metric-label">Exact Accuracy</div>'
+        '<div class="metric-value" style="color:#4f6ef7">77.91%</div></div>',
         unsafe_allow_html=True,
     )
-
 with col2:
     st.markdown(
-        f"""<div class="metric-card">
-            <div class="metric-label">Off-by-One Accuracy</div>
-            <div class="metric-value" style="color:#22c55e">95.71%</div>
-        </div>""",
+        '<div class="metric-card"><div class="metric-label">Off-by-One Accuracy</div>'
+        '<div class="metric-value" style="color:#22c55e">95.71%</div></div>',
         unsafe_allow_html=True,
     )
-
 with col3:
     st.markdown(
-        f"""<div class="metric-card">
-            <div class="metric-label">MAE (↓ better)</div>
-            <div class="metric-value" style="color:#ef9f27">26.38%</div>
-        </div>""",
+        '<div class="metric-card"><div class="metric-label">MAE (↓ better)</div>'
+        '<div class="metric-value" style="color:#ef9f27">26.38%</div></div>',
         unsafe_allow_html=True,
     )
-
 with col4:
     st.markdown(
-        f"""<div class="metric-card">
-            <div class="metric-label">QWK (↑ better)</div>
-            <div class="metric-value" style="color:#4f6ef7">91.78%</div>
-        </div>""",
+        '<div class="metric-card"><div class="metric-label">QWK (↑ better)</div>'
+        '<div class="metric-value" style="color:#4f6ef7">91.78%</div></div>',
         unsafe_allow_html=True,
     )
 
 st.markdown("<br>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
-# TASK DETAIL
+# ════════════════════════════════════════════
+#  MODE A — PRESET TASK
+# ════════════════════════════════════════════
 # ─────────────────────────────────────────────
-st.markdown(f"### 📝 Task")
-st.markdown(
-    f'<div style="background:#1a1d27;border-radius:10px;padding:16px 20px;'
-    f'border-left:4px solid #4f6ef7;color:#e2e8f0;font-size:15px;line-height:1.6;">'
-    f'{selected_task["task"]}</div>',
-    unsafe_allow_html=True,
-)
+if st.session_state.mode == "preset":
 
-st.markdown("<br>", unsafe_allow_html=True)
-
-# Two columns: rubric + code editor
-left_col, right_col = st.columns([1, 2])
-
-with left_col:
-    st.markdown("#### 📋 Scoring Rubric")
-    rubric = selected_task.get("rubric", {})
-    rubric_rows = ""
-    for score_key in ["5", "4", "3", "2", "1"]:
-        desc = rubric.get(score_key, "—")
-        color = SCORE_COLORS.get(int(score_key), "#888")
-        rubric_rows += (
-            f'<tr><td style="color:{color}">{score_key}</td>'
-            f'<td>{desc}</td></tr>'
-        )
+    st.markdown("### 📝 Task")
     st.markdown(
-        f'<div style="background:#1a1d27;border-radius:10px;padding:16px;border:1px solid #2a2d3a;">'
-        f'<table class="rubric-table"><tbody>{rubric_rows}</tbody></table></div>',
+        f'<div style="background:#1a1d27;border-radius:10px;padding:16px 20px;'
+        f'border-left:4px solid #4f6ef7;color:#e2e8f0;font-size:15px;line-height:1.6;">'
+        f'{selected_task["task"]}</div>',
         unsafe_allow_html=True,
     )
+    st.markdown("<br>", unsafe_allow_html=True)
 
-    # Reference solution toggle
-    with st.expander("🔍 View Reference Solution"):
-        st.code(selected_task.get("reference", "No reference available."), language="cpp")
+    left_col, right_col = st.columns([1, 2])
 
-with right_col:
-    st.markdown("#### 🖊️ Code Editor")
-    code = st.text_area(
-        "Write your C++ solution here",
-        height=380,
-        value="#include <iostream>\nusing namespace std;\n\nint main() {\n    // Your solution here\n    \n    return 0;\n}\n",
+    with left_col:
+        st.markdown("#### 📋 Scoring Rubric")
+        rubric = selected_task.get("rubric", {})
+        rubric_rows = ""
+        for score_key in ["5", "4", "3", "2", "1"]:
+            desc = rubric.get(score_key, "—")
+            color = SCORE_COLORS.get(int(score_key), "#888")
+            rubric_rows += (
+                f'<tr><td style="color:{color}">{score_key}</td>'
+                f'<td>{desc}</td></tr>'
+            )
+        st.markdown(
+            f'<div style="background:#1a1d27;border-radius:10px;padding:16px;border:1px solid #2a2d3a;">'
+            f'<table class="rubric-table"><tbody>{rubric_rows}</tbody></table></div>',
+            unsafe_allow_html=True,
+        )
+        with st.expander("🔍 View Reference Solution"):
+            st.code(selected_task.get("reference", "No reference available."), language="cpp")
+
+    with right_col:
+        st.markdown("#### 🖊️ Code Editor")
+        code = st.text_area(
+            "Write your C++ solution here",
+            height=380,
+            value="#include <iostream>\nusing namespace std;\n\nint main() {\n    // Your solution here\n    \n    return 0;\n}\n",
+            label_visibility="collapsed",
+        )
+        submitted = st.button("🚀 Submit & Evaluate")
+
+    task_for_api      = selected_task["task"]
+    reference_for_api = selected_task.get("reference")
+
+# ─────────────────────────────────────────────
+# ════════════════════════════════════════════
+#  MODE B — CUSTOM TASK
+# ════════════════════════════════════════════
+# ─────────────────────────────────────────────
+else:
+    st.markdown("### 📝 Task Description")
+    task_for_api = st.text_area(
+        "Describe the programming task",
+        height=130,
+        placeholder=(
+            "e.g. Write a C++ function that takes a sorted array and a target integer "
+            "and returns its index using binary search. Return -1 if not found."
+        ),
         label_visibility="collapsed",
     )
+
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("### 🖊️ Code Editor")
+    code = st.text_area(
+        "Write your C++ solution here",
+        height=360,
+        value="#include <iostream>\nusing namespace std;\n\nint main() {\n    // Your solution here\n    \n    return 0;\n}\n",
+        label_visibility="collapsed",
+        key="custom_code",
+    )
+
+    with st.expander("📎 Add Reference Solution (recommended for accurate evaluation)"):
+        reference_for_api = st.text_area(
+            "Paste a correct reference solution",
+            height=200,
+            placeholder="#include <iostream>\nusing namespace std;\n\nint main() {\n    // correct solution here\n    return 0;\n}\n",
+            label_visibility="collapsed",
+            key="custom_reference",
+        )
+        if not reference_for_api.strip():
+            reference_for_api = None
+            st.caption("⚠️ Without a reference, evaluation may be inaccurate.")
 
     submitted = st.button("🚀 Submit & Evaluate")
 
 # ─────────────────────────────────────────────
-# EVALUATION RESULT
+# API HEALTH
 # ─────────────────────────────────────────────
-
-# Check API health before submitting
 def api_is_up():
     for base in ["http://127.0.0.1:8000", "http://localhost:8000"]:
         for endpoint in ["/health", "/"]:
@@ -369,13 +416,21 @@ def api_is_up():
                 continue
     return False
 
+# ─────────────────────────────────────────────
+# EVALUATION
+# ─────────────────────────────────────────────
 if submitted:
+    # Guard: custom mode needs a task description
+    if st.session_state.mode == "custom" and not task_for_api.strip():
+        st.warning("⚠️ Please enter a task description before submitting.")
+        st.stop()
+
     if not api_is_up():
         st.markdown("---")
         st.error(
             "🔌 **Model API is offline.**  "
             "Your code cannot be evaluated right now.  \n\n"
-            "Start your backend server (`uvicorn main:app --reload`) and try again.",
+            "Start your backend server (`uvicorn api:app --reload`) and try again.",
         )
     else:
         with st.spinner("🤖 Evaluating your submission…"):
@@ -385,15 +440,15 @@ if submitted:
 
             try:
                 res = requests.post(
-                   "http://127.0.0.1:8000/evaluate",
-                json={
-                "task": selected_task["task"],
-                 "submission": code,
-               "reference": selected_task.get("reference"),
-                "model": model_choice   # 👈 ADD THIS
-               },
-                   timeout=30,
-)
+                    "http://127.0.0.1:8000/evaluate",
+                    json={
+                        "task": task_for_api,
+                        "submission": code,
+                        "reference": reference_for_api,
+                        "model": model_choice,
+                    },
+                    timeout=30,
+                )
                 if res.ok:
                     result = res.json()
                 else:
@@ -409,9 +464,9 @@ if submitted:
         if error_msg:
             st.error(f"❌ Evaluation failed: {error_msg}")
         elif result:
-            score = result.get("score", 0)
-            color = SCORE_COLORS.get(score, "#888")
-            label = SCORE_LABELS.get(score, "")
+            score    = result.get("score", 0)
+            color    = SCORE_COLORS.get(score, "#888")
+            label    = SCORE_LABELS.get(score, "")
             rationale = result.get("rationale", "")
 
             st.markdown(
@@ -425,7 +480,9 @@ if submitted:
                             <div style="background:#2a2d3a;border-radius:6px;height:10px;overflow:hidden;">
                                 <div style="width:{score/5*100}%;height:100%;background:{color};border-radius:6px;"></div>
                             </div>
-                            <div style="color:#8b92a5;font-size:12px;margin-top:5px;">{score/5*100:.0f}% score</div>
+                            <div style="color:#8b92a5;font-size:12px;margin-top:5px;">
+                                {score/5*100:.0f}% score · {elapsed}s
+                            </div>
                         </div>
                     </div>
                     <div class="result-rationale">{rationale}</div>
