@@ -25,7 +25,7 @@ app.add_middleware(
 
 # ── Config ────────────────────────────────────────────────────────────────────
 DATASET_PATH   = "data.json"
-MODEL_DIR      = "models/cpp_evaluator_lora"
+MODEL_DIR      = "lana-4/cpp-evaluator-lora"
 BASE_MODEL     = "unsloth/mistral-7b-instruct-v0.2-bnb-4bit"
 MAX_SEQ_LEN    = 1536
 MAX_NEW_TOKENS = 128
@@ -124,7 +124,7 @@ def _load_model_internal(model_type: str = "finetuned"):
         load_in_4bit=True,
     )
 
-    if model_type == "finetuned" and Path(MODEL_DIR).exists():
+    if model_type == "finetuned":
         from peft import PeftModel
         print(f"[model] Merging LoRA adapter from: {MODEL_DIR}")
         model = PeftModel.from_pretrained(model, MODEL_DIR)
@@ -208,7 +208,7 @@ def model_status():
     return {
         "loaded":              _model is not None,
         "type":                _model_type,
-        "finetuned_available": Path(MODEL_DIR).exists(),
+        "finetuned_available": True,
     }
 
 
