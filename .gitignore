@@ -1,5 +1,33 @@
-venv/
+
+# Model weights (too large for GitHub — hosted on Hugging Face Hub instead)
 models/
-__pycache__/
 unsloth_compiled_cache/
+
+# Python environment
+venv/
+env/
+__pycache__/
 *.pyc
+
+# Generated data/results (regenerate by rerunning the pipeline)
+data/
+results/
+
+# Jupyter / Colab
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Secrets (never commit tokens/keys)
+.env
+*.token

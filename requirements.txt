@@ -1,0 +1,25 @@
+# Core ML / training
+torch
+transformers
+peft
+trl
+datasets
+unsloth
+bitsandbytes
+accelerate
+
+# Metrics
+scikit-learn
+numpy
+
+# Backend API
+fastapi
+uvicorn
+pydantic
+
+# Frontend
+streamlit
+requests
+
+# Hugging Face Hub
+huggingface_hub
