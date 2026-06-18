@@ -122,7 +122,7 @@ def _load_model():
     from peft import PeftModel
     print(f"[model] Merging LoRA adapter from: {MODEL_DIR}")
     model = PeftModel.from_pretrained(model, MODEL_DIR)
-    model = model.merge_and_unload()
+    
 
     FastLanguageModel.for_inference(model)
     _model     = model
