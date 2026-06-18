@@ -1,6 +1,6 @@
 """
 api.py — FastAPI backend for C++ Assignment Evaluator
-Run with: uvicorn api:app --reload --port 8000
+Run with: uvicorn api:app --port 8000
 """
 
 from fastapi import FastAPI, HTTPException
@@ -33,7 +33,6 @@ MAX_NEW_TOKENS = 128
 # ── Global model state ────────────────────────────────────────────────────────
 _model      = None
 _tokenizer  = None
-_model_type = None  # "finetuned" or "base"
 
 # ── System prompt ─────────────────────────────────────────────────────────────
 SYSTEM_PROMPT = """You are a strict, accurate, and consistent C++ programming instructor evaluating student submissions.
@@ -66,7 +65,6 @@ def format_rubric(rubric: dict) -> str:
 
 
 def build_user_message(task: str, reference: Optional[str], submission: str, rubric: dict) -> str:
-    # Reference is optional — custom tasks may not have one
     ref_section = (
         f"### Reference Solution\n```cpp\n{reference}\n```\n\n"
         if reference
@@ -104,15 +102,12 @@ def load_dataset():
         return json.load(f)
 
 
-def _load_model_internal(model_type: str = "finetuned"):
-    """
-    Load model into globals. Skips reload if the requested model type is
-    already loaded — prevents the 30s+ overhead on every /evaluate call.
-    """
-    global _model, _tokenizer, _model_type
+def _load_model():
+    """Load the fine-tuned model exactly once into globals."""
+    global _model, _tokenizer
 
-    if _model is not None and _model_type == model_type:
-        return
+    if _model is not None:
+        return  # already loaded — nothing to do
 
     from unsloth import FastLanguageModel
 
@@ -124,45 +119,38 @@ def _load_model_internal(model_type: str = "finetuned"):
         load_in_4bit=True,
     )
 
-    if model_type == "finetuned":
-        from peft import PeftModel
-        print(f"[model] Merging LoRA adapter from: {MODEL_DIR}")
-        model = PeftModel.from_pretrained(model, MODEL_DIR)
-        model = model.merge_and_unload()
-        _model_type = "finetuned"
-        print("[model] Fine-tuned model ready ✓")
-    else:
-        if model_type == "finetuned":
-            print(f"[model] WARNING: adapter not found at {MODEL_DIR}, using base model")
-        _model_type = "base"
-        print("[model] Base model ready ✓")
+    from peft import PeftModel
+    print(f"[model] Merging LoRA adapter from: {MODEL_DIR}")
+    model = PeftModel.from_pretrained(model, MODEL_DIR)
+    model = model.merge_and_unload()
 
     FastLanguageModel.for_inference(model)
     _model     = model
     _tokenizer = tokenizer
+    print("[model] Fine-tuned model ready ✓")
 
 
-# ── Auto-load model on startup ────────────────────────────────────────────────
+# ── Load model once on startup ────────────────────────────────────────────────
 @app.on_event("startup")
 async def startup_event():
     try:
-        _load_model_internal("finetuned")
+        _load_model()
     except Exception as e:
         print(f"[startup] ERROR loading model: {e}")
 
+
 # ── Pydantic models ───────────────────────────────────────────────────────────
 class EvaluateRequest(BaseModel):
-    task: str
+    task:       str
     submission: str
-    reference: Optional[str] = None
-    rubric: Optional[dict] = None
-    model: Optional[str] = "finetuned"
+    reference:  Optional[str]  = None
+    rubric:     Optional[dict] = None
+
 
 class EvaluateResponse(BaseModel):
     score:           Optional[int]
     rationale:       str
     raw_output:      str
-    model_used:      str
     elapsed_seconds: float
 
 
@@ -179,7 +167,7 @@ def root():
     return {
         "status":  "ok",
         "message": "C++ Evaluator API running",
-        "model":   _model_type or "not loaded",
+        "model":   "finetuned" if _model is not None else "not loaded",
     }
 
 
@@ -188,7 +176,6 @@ def health():
     return {
         "status":       "ok",
         "model_loaded": _model is not None,
-        "model_type":   _model_type,
     }
 
 
@@ -203,30 +190,9 @@ def get_tasks():
     return list(seen.values())
 
 
-@app.get("/model/status")
-def model_status():
-    return {
-        "loaded":              _model is not None,
-        "type":                _model_type,
-        "finetuned_available": True,
-    }
-
-
-@app.post("/model/load")
-def load_model(model_type: str = "finetuned"):
-    """Manually reload the model (e.g. to switch base ↔ finetuned)."""
-    global _model_type
-    _model_type = None
-    try:
-        _load_model_internal(model_type)
-        return {"status": "loaded", "type": _model_type}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
-
 @app.post("/evaluate", response_model=EvaluateResponse)
 def evaluate(req: EvaluateRequest):
-    """Evaluate a student submission using the loaded model."""
+    """Evaluate a student submission using the fine-tuned model."""
 
     if _model is None or _tokenizer is None:
         raise HTTPException(
@@ -236,9 +202,6 @@ def evaluate(req: EvaluateRequest):
                 "failed to load. Check server logs and try again in a moment."
             ),
         )
-
-    requested_model = req.model or "finetuned"
-    _load_model_internal(requested_model)
 
     # Resolve reference + rubric: prefer request fields, then fall back to dataset
     reference = req.reference
@@ -252,8 +215,6 @@ def evaluate(req: EvaluateRequest):
                 rubric    = rubric    or entry.get("rubric")
                 break
 
-    # reference is now genuinely optional — no 400 if still None
-    # rubric falls back to a generic one so custom tasks always get scored
     if rubric is None:
         rubric = DEFAULT_RUBRIC
 
@@ -298,7 +259,6 @@ def evaluate(req: EvaluateRequest):
         score           = score,
         rationale       = rationale,
         raw_output      = raw_output,
-        model_used      = _model_type,
         elapsed_seconds = elapsed,
     )
 

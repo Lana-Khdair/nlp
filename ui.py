@@ -246,7 +246,6 @@ with st.sidebar:
             unsafe_allow_html=True,
         )
 
-model_choice = "finetuned"
 # ─────────────────────────────────────────────
 # HEADER
 # ─────────────────────────────────────────────
@@ -430,7 +429,7 @@ if submitted:
         st.error(
             "🔌 **Model API is offline.**  "
             "Your code cannot be evaluated right now.  \n\n"
-            "Start your backend server (`uvicorn api:app --reload`) and try again.",
+            "Start your backend server (`uvicorn api:app --port 8000`) and try again.",
         )
     else:
         with st.spinner("🤖 Evaluating your submission…"):
@@ -442,10 +441,9 @@ if submitted:
                 res = requests.post(
                     "http://127.0.0.1:8000/evaluate",
                     json={
-                        "task": task_for_api,
+                        "task":       task_for_api,
                         "submission": code,
-                        "reference": reference_for_api,
-                        "model": model_choice,
+                        "reference":  reference_for_api,
                     },
                     timeout=30,
                 )
